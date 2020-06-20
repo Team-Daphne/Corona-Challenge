@@ -1,6 +1,8 @@
 # Corona-Challenge
 201 class project
 
+Create an engaging, educational app to educate.
+
 
 ## Authors: 
 Claudio Bailon-Schubert
