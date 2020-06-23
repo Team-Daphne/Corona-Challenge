@@ -27,5 +27,21 @@ function Scenario(img, question, answerOptions, pointValue, finalAnswer ){
     this.text = text;
     this.link = link;
     //this.category = category;
-
   }
+
+//====================== Scenario Objects =======================================
+
+var handShake = new Scenario(
+    'images/handshake.png', 
+    'some one wants to shake your hand',
+    ['hold your hand to heart...', 'fist', 'shake hand', 'give hug'],
+    [0, 1, 2, 3],
+    'hold your hand to heart is correct answer'
+);
+
+//====================== link objects =======================================
+
+var gatheringLink = new OutsideLinks(
+    'CDC recomendations for large gatherings',
+    'https://www.cdc.gov/coronavirus/2019-ncov/community/large-events/considerations-for-events-gatherings.html'
+);
