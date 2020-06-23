@@ -57,15 +57,19 @@ function renderCorrectAnswer(){
 };
 
 
-
+//add event listener
 function handleSubmitAnswer(event){
-
+renderCorrectAnswer();
 };
 
+//add event listener
 function handleClickNextQuestion(event2){
-
+  renderScenarioToPage();
 };
 
+//handleSeeMyResults will transfer points to the result page
+//and render the recomended links based off of quiz results and the user profile
+//
 function handleSeeMyResults(event3){
 
 };
@@ -74,3 +78,4 @@ function updatePointEarned(){
 
 };
 
+renderScenarioToPage();
