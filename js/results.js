@@ -8,13 +8,11 @@
 //TODO: landing page load signifies either new user or return user
 // there is logic in bus mall app re knowing if something is in local storage or not yet
 
-//we will need to access some of the things from app.js here 
+//we will need to access some of the things from app.js here
 // we're using the links constructor here to show results and links
 
-var transferInfoToResultsPage = document.getElementById('user-input');//Maybe submit-user
-transferInfoToResultsPage.addEventListener('submit', handleDataFromForm);//Is submit a valid action to listen to?
-// TODO: create an object or object contructor for userProfile
 
+//=============================User Contructor======================
 function User(name, age, protests, travel, diningOut){
   this.name = name;
   this.age = age;
@@ -22,7 +20,14 @@ function User(name, age, protests, travel, diningOut){
   this.travel = travel;
   this.diningOut = diningOut;
 }
+//==============================Create User Profile=================
 
+//==========================AddEventLIstener============================
+var transferInfoToResultsPage = document.getElementById('user-input');//Maybe submit-user
+transferInfoToResultsPage.addEventListener('submit', handleDataFromForm);//Is submit a valid action to listen to?
+// TODO:********** create an object or object contructor for userProfile
+
+//=========================Callback Function======================
 function handleDataFromForm (event){
   event.preventDefault();
   var playerName = event.target.name.value;
@@ -31,16 +36,18 @@ function handleDataFromForm (event){
   var travel = event.target.interest2.checked;
   var diningOut = event.target.interest3.checked;//nick helped us find this https://stackoverflow.com/questions/14544104/checkbox-check-event-listener
   console.log('***', protests, travel, diningOut);
+  
+  var userProfile = new User(playerName, playerAge, protests, travel, diningOut);
+  var userProfileStringified = JSON.stringify(userProfile);
+  localStorage.setItem('storedProfile', userProfileStringified);
 }
 
 // For local storage:
 // Stringify and store:
 // ‘storedProfile’   (check in with TA re use of camel case vs hyphenated)
 // Get from storage:
-var getProfileFromStorage = localStorage.getItem(‘storedProfile’)
-var profileFromStorage = JSON.parse(getProfileFromStorage)
+// var getProfileFromStorage = localStorage.getItem('storedProfile');
+// var profileFromStorage = JSON.parse(getProfileFromStorage);
 
 
-var userProfileStringified = JSON.stringify(userProfile)
-localStorage.setItem(‘storedProfile’, userProfileStringified)
 
