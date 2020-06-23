@@ -3,9 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coronavirus Challenge</title>
+    <link href="css/reset.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
+
 <body>
-    
+    <header>
+        <img id="logo">
+        <h1>Coronavirus Challenge (or other title)</h1>
+        <nav>
+            <a href="about.html">About the Developers</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="welcome">
+            <p>Here is a welcome to the page, instructions for filling out user profile form and quiz questions that follow.</p>
+        </section>
+
+        <section id="user-form">
+            
+            <form id="user-input">
+                <fieldset>
+                    <legend>Player Information</legend>
+
+                        <label for="name">Name</label>
+                        <input type="text" name="name">
+
+                        <label for="age">How old are you?</label>
+                        <input type="number" name="age">
+                        <!-- might change to dob input -->
+
+                        <label for="interest">Check boxes if you'd like more info</label>
+                        <input type="checkbox" name="interest" value="Protests">
+                        <input type="checkbox" name="interest" value="Travel">
+                        <input type="checkbox" name="interest" value="Dining out">
+
+                     <button id="submit-user">Submit</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- <div> STRETCH GOAL
+            <button>Reset game</button>
+            <button>Reset profile</button>
+        </div> -->
+
+        <section>
+            <button id="start-game">Start challenge</button>
+        </section>
+        
+    </main>
+
+    <footer> &copy; 2020 Team Daphne </footer>
+
+    <script src="js/app.js"></script>
+
 </body>
 </html>
