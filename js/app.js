@@ -8,7 +8,7 @@ var pointsEarned = [];
 var totalPoints = 0;
 var goodScoreLinks = [];
 var badScoreLinks = [];
-var protestLinks = [];
+var protestLinks = gatheringLink;
 var diningLinks = [];
 var travelLinks = [];
 //arrSum (of pointsEarned []);
@@ -45,3 +45,32 @@ var gatheringLink = new OutsideLinks(
     'CDC recomendations for large gatherings',
     'https://www.cdc.gov/coronavirus/2019-ncov/community/large-events/considerations-for-events-gatherings.html'
 );
+
+//====================== Functions =======================================
+
+function renderScenarioToPage(){
+
+};
+
+function renderCorrectAnswer(){
+
+};
+
+
+
+function handleSubmitAnswer(event){
+
+};
+
+function handleClickNextQuestion(event2){
+
+};
+
+function handleSeeMyResults(event3){
+
+};
+
+function updatePointEarned(){
+
+};
+
