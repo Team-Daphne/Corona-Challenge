@@ -92,7 +92,22 @@ function makeSubmitButton() {
 
 //happens upon page load and anytime they click next question!!
 function renderScenarioToPage(){
-  // document.getElementById('answer-container').style.visibility = 'visible';
+  //hide the other thing here
+  document.getElementById('answer-key').style.display = 'none';
+  document.getElementById('final-answer-section').style.display = 'none';
+
+
+  //if statement... if this greater then first iteration (index is > 0) then
+  if (indexNumber > 0){
+    var answerKeyContainer = document.getElementById('answer-key');
+    // answerKeyContainer.removeChild(answerKeyContainer.firstChild);
+
+    answerKeyContainer.innerHTML= '';
+    var finalAnswerSection = document.getElementById('final-answer-section');
+    finalAnswerSection.removeChild(finalAnswerSection.firstChild);
+  }
+
+  document.getElementById('answer-container').style.display = 'block';
   var questionContainer = document.getElementById('scenario-container');
   var question = document.getElementById('the-question');
   question.textContent = allScenarios[indexNumber].question;
@@ -156,6 +171,19 @@ function makeNextButton() {
   nextButtonHolder.appendChild(nextQuestionButton);
 }
 
+function makeSeeResultsButton() {
+  var seeResultsButtonHolder = document.getElementById('get-results-button-holder');
+  var seeResultsButton = document.createElement('button');
+  seeResultsButton.type = 'click';
+  seeResultsButton.onclick = handleClickSeeResults;
+  seeResultsButton.style.width = '200px';
+  seeResultsButton.style.height = '40px';
+  seeResultsButton.style.marginTop = '50px';
+  seeResultsButton.style.fontSize = '18pt';
+  seeResultsButton.textContent = 'See results!';
+  seeResultsButtonHolder.appendChild(seeResultsButton);
+}
+
 function renderCorrectAnswer(){
   // var answerChoiceContainer = document.getElementById('answer-container');
   // var answerLabel = document.createElement('p');
@@ -163,6 +191,13 @@ function renderCorrectAnswer(){
   // answerChoiceContainer.parentNode.replaceChild(answerLabel, answerChoiceContainer);
 
   document.getElementById('answer-container').style.display = 'none';
+  document.getElementById('final-answer-section').style.display = 'block';
+  //delete/remove submit button
+  var answerContainerHoldingSubmit = document.getElementById('answer-container');
+  // reference https://stackoverflow.com/questions/13763/how-can-i-remove-a-child-node-in-html-using-javascript
+  answerContainerHoldingSubmit.removeChild(answerContainerHoldingSubmit.lastChild);
+  //bring the other thing
+  document.getElementById('answer-key').style.display = 'block';
   var answerKey = document.getElementById('answer-key');
   for (var i=0; i < 4; i++){
     var answerChoice = document.createElement('li');
@@ -173,9 +208,17 @@ function renderCorrectAnswer(){
   var finalAnswerText = document.createElement('p');
   finalAnswerText.textContent = allScenarios[indexNumber].finalAnswer;
   finalAnswerContainer.appendChild(finalAnswerText);
-
-  makeNextButton();
+  // may need to pay attention to make next button here
+  if (indexNumber < (allScenarios.length-1)){
+    makeNextButton();
+  } else {
+    makeSeeResultsButton();
+  }
 }
+
+
+//when we click submit on the last question, we DON"T want renderScenarioToPage, we want new function that shows "get results button"
+
 
 //============Event Handler to replace answer choices w/ answer=======
 
@@ -183,9 +226,16 @@ function handleClickNextQuestion(event2){
   //incrementing global var indexNumber in this function allows us to move through the allScenarios array
   // event2.preventDefault();
   indexNumber++;
-  document.getElementById('next-button-holder').style.display = 'none';
+  // document.getElementById('next-button-holder').style.display = 'none';
+  var nextButtonHolder = document.getElementById('next-button-holder');
+  // reference https://stackoverflow.com/questions/13763/how-can-i-remove-a-child-node-in-html-using-javascript
+  nextButtonHolder.removeChild(nextButtonHolder.lastChild);
   // displayAnswerContainer();
   renderScenarioToPage();
+}
+//removed event3from parenthesis
+function handleClickSeeResults() {
+  location.href = 'results.html';
 }
 
 var checkButton = document.getElementById('answer-container');
@@ -196,19 +246,12 @@ function handleSubmitAnswer(event){
   renderCorrectAnswer();
 }
 
-//add event listener
-// var nextButton = document.getElementById('next-button');
-// nextButton.addEventListener('click', handleClickNextQuestion);
-
 
 
 
 // //handleSeeMyResults will transfer points to the result page
 // //and render the recommended links based off of quiz results and the user profile
-// //
-// function handleSeeMyResults(event3){
 
-// }
 
 
 
