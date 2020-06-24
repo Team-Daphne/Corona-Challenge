@@ -76,56 +76,55 @@ function renderScenarioToPage(){
     answerChoice.type = 'radio';
     answerChoiceContainer.appendChild(answerChoice);
   }
-//TODO: change order of above so that the radio button shows before the text
-//TODO: make sure each answer is on a separate line
-//TODO: move button to check answer below everything else 
-
-
-
-
+  //TODO: change order of above so that the radio button shows before the text
+  //TODO: make sure each answer is on a separate line
+  //TODO: move button to check answer below everything else 
 
 }
 
 function renderCorrectAnswer(){
-
-};
+  var answerChoiceContainer = document.getElementById('answer-container');
+  var answerLabel = document.createElement('p');
+  answerLabel.textContent = allScenarios[indexNumber].finalAnswer;
+  answerChoiceContainer.parentNode.replaceChild(answerLabel, answerChoiceContainer);
+}
 
 
 //add event listener
 
-var checkButton = document.getElementById('check-answer-button');
-checkButton.addEventListener('submit', function handleSubmitAnswer);
+var checkButton = document.getElementById('answer-container');
+checkButton.addEventListener('submit', handleSubmitAnswer);
 
 function handleSubmitAnswer(event){
   event.preventDefault();
-
-renderCorrectAnswer();
-};
-
-
-
-//add event listener
-function handleClickNextQuestion(event2){
-  renderScenarioToPage();
-
-  //incrementing gloabl var indexNumber in this function allows us to move through the allScenarios array
-  indexNumber++;
-};
+  console.log('button was clicked');
+  renderCorrectAnswer();
+}
 
 
 
-//handleSeeMyResults will transfer points to the result page
-//and render the recomended links based off of quiz results and the user profile
-//
-function handleSeeMyResults(event3){
+// //add event listener
+// function handleClickNextQuestion(event2){
+//   renderScenarioToPage();
 
-};
+//   //incrementing gloabl var indexNumber in this function allows us to move through the allScenarios array
+//   indexNumber++;
+// };
 
 
 
-function updatePointEarned(){
+// //handleSeeMyResults will transfer points to the result page
+// //and render the recomended links based off of quiz results and the user profile
+// //
+// function handleSeeMyResults(event3){
 
-};
+// };
+
+
+
+// function updatePointEarned(){
+
+// };
 
 
 
