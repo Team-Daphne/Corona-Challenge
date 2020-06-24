@@ -79,8 +79,20 @@ function makeSubmitButton() {
   submitButton.textContent = 'submit';
   answerChoiceContainer.appendChild(submitButton);
 }
+
+// function displayAnswerContainer (){
+//   var answerContainer = document.getElementById('answer-container');
+//   var displayStatus = answerContainer.display;
+//   if (displayStatus === 'none'){
+//     answerContainer.style.display = 'block';
+//   } else {
+//     answerContainer.style.display = 'none';
+//   }
+// }
+
 //happens upon page load and anytime they click next question!!
 function renderScenarioToPage(){
+  // document.getElementById('answer-container').style.visibility = 'visible';
   var questionContainer = document.getElementById('scenario-container');
   var question = document.getElementById('the-question');
   question.textContent = allScenarios[indexNumber].question;
@@ -172,6 +184,7 @@ function handleClickNextQuestion(event2){
   // event2.preventDefault();
   indexNumber++;
   document.getElementById('next-button-holder').style.display = 'none';
+  // displayAnswerContainer();
   renderScenarioToPage();
 }
 
