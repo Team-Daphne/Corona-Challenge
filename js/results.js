@@ -11,10 +11,6 @@
 
 //we will need to access some of the things from app.js here
 // we're using the links constructor here to show results and links
-//============================Function Calls===========================
-renderResultsToPage();
-renderGameLinksToPage();
-renderInputLinksToPage();//For some reason, if these calls are at the bottom, they won't render. If they are at the top, local storage wont gather
 
 var getProfileFromStorage = localStorage.getItem('storedProfile');
 var profileFromStorage = JSON.parse(getProfileFromStorage);
@@ -63,31 +59,36 @@ function renderInputLinksToPage(){
     
     var linksList = document.getElementById('user-choice');
     var listContent = document.createElement('a');
-  var choicesLink = document.createTextNode('Gatherings Link');
-  listContent.appendChild(choicesLink);
-  listContent.href = gatheringLink.link;//can make this access array of links when done
-  listContent.target = '_blank',
-  linksList.appendChild(listContent);
-  //figured out how to link from js at https://www.geeksforgeeks.org/how-to-create-a-link-in-javascript/ and how to make it open in a new tab at https://www.thesitewizard.com/html-tutorial/open-links-in-new-window-or-tab.shtml#:~:text=How%20to%20Open%20Hyperlinks%20in,your%20links%20(anchor%20tags).&text=Now%20when%20your%20visitors%20click,how%20they%20configured%20that%20browser).
-  // }
-
-}
-
-//==========================Render Game Links to Page=================================
-function renderGameLinksToPage(){
-  var linksList = document.getElementById('game-rec');
-  var listContent = document.createElement('a');
-  var choicesLink = document.createTextNode('Handwashing Link');
-  listContent.appendChild(choicesLink);
-  listContent.href = handwashingLink.link;
-  listContent.target = '_blank',
-  linksList.appendChild(listContent);
-}
-
-
-
-
-
-
-
-
+    var choicesLink = document.createTextNode('Gatherings Link');
+    listContent.appendChild(choicesLink);
+    listContent.href = gatheringLink.link;//can make this access array of links when done
+    listContent.target = '_blank',
+    linksList.appendChild(listContent);
+    //figured out how to link from js at https://www.geeksforgeeks.org/how-to-create-a-link-in-javascript/ and how to make it open in a new tab at https://www.thesitewizard.com/html-tutorial/open-links-in-new-window-or-tab.shtml#:~:text=How%20to%20Open%20Hyperlinks%20in,your%20links%20(anchor%20tags).&text=Now%20when%20your%20visitors%20click,how%20they%20configured%20that%20browser).
+    // }
+    
+  }
+  
+  //==========================Render Game Links to Page=================================
+  function renderGameLinksToPage(){
+    var linksList = document.getElementById('game-rec');
+    var listContent = document.createElement('a');
+    var choicesLink = document.createTextNode('Handwashing Link');
+    listContent.appendChild(choicesLink);
+    listContent.href = handwashingLink.link;
+    listContent.target = '_blank',
+    linksList.appendChild(listContent);
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  //============================Function Calls===========================
+  renderResultsToPage();
+  renderGameLinksToPage();
+  renderInputLinksToPage();//For some reason, if these calls are at the bottom, they won't render. If they are at the top, local storage wont gather
+  
