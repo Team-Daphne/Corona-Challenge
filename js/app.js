@@ -212,18 +212,18 @@ function renderCorrectAnswer(){
 
 
 //---------the below works to access the button thats clicked, but we need to figure out how to read value of it
-
+function registerAnswer(){
 var radioButtons = document.getElementsByName('answer-choice');
 for (var i = 0; i < radioButtons.length; i++){
   // radioButtons[i].onclick = function(){
     // var checkTruth = radioButtons[i].checked;
     if (radioButtons[i].checked)
       var checkedButtonValue = radioButtons[i].value;
-      //  checkedButtonValue;
-  };
-// }
+      // console.log('nice job' + pointsEarned)
+    }
 
-
+    pointsEarned.push(checkedButtonValue);
+  }
 
 //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
 
@@ -254,7 +254,9 @@ checkButton.addEventListener('submit', handleSubmitAnswer);
 function handleSubmitAnswer(event){
   event.preventDefault();
   //insert function to check answer
+  registerAnswer();
   renderCorrectAnswer();
+
 }
 
 
