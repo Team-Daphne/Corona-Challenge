@@ -1,6 +1,6 @@
 *{
   box-sizing: border-box;
-  background-color: rgb(243,241,222, .2);
+  background-color: rgb(243,241,222, .1);
 }
 
 header{
@@ -57,9 +57,9 @@ main{
 }
 
 #welcome{
-  border: dotted 2px #e0795f;
+  border: solid 1px #e0795f;
   border-radius: 10px;
-  width: 90%;
+  width: 75%;
   padding: 5px;
   margin-left: auto;
   margin-right: auto;
@@ -71,7 +71,7 @@ p{
 }
 
 #user-form{
-  border: dotted 2px #e0795f;
+  border: solid 1px #e0795f;
   border-radius: 10px;
   width: 70%;
   padding: 5px;
@@ -98,6 +98,13 @@ footer{
 /* #about-main{
   height: 1000px;
 } */
+
+h3{
+  color: #3e405b;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+}
 
 .face{
   border: double 2px #3e405b;
