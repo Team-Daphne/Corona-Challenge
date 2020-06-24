@@ -101,7 +101,6 @@ function renderScenarioToPage(){
   if (indexNumber > 0){
     var answerKeyContainer = document.getElementById('answer-key');
     // answerKeyContainer.removeChild(answerKeyContainer.firstChild);
-
     answerKeyContainer.innerHTML= '';
     var finalAnswerSection = document.getElementById('final-answer-section');
     finalAnswerSection.removeChild(finalAnswerSection.firstChild);
