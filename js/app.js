@@ -7,6 +7,7 @@ var allScenarios = [];
 var indexNumber = 0;
 
 var pointsEarned = [];
+//arrSum (of pointsEarned []);
 var totalPoints = 0;
 
 var goodScoreLinks = [];
@@ -15,7 +16,6 @@ var badScoreLinks = handwashingLink;
 var protestLinks = gatheringLink;
 var diningLinks = [];
 var travelLinks = [];
-//arrSum (of pointsEarned []);
 
 //====================== Constructor Function =======================================
 function Scenario(img, question, answerOptions, pointValue, finalAnswerKey, finalAnswer){
@@ -203,7 +203,38 @@ function renderCorrectAnswer(){
 }
 
 
+
 //when we click submit on the last question, we DON"T want renderScenarioToPage, we want new function that shows "get results button"
+
+//=================== Getting value from radio buttons =================
+
+
+
+
+//---------the below works to access the button thats clicked, but we need to figure out how to read value of it
+
+var radioButtons = document.getElementsByName('answer-choice');
+for (var i = 0; i < radioButtons.length; i++){
+  radioButtons[i].onclick = function(){
+    console.log('rendered value to log:'+ radioButtons[i].value);
+  };
+}
+
+
+//------------------- the below works to read the value, but doesnt work in click function
+
+// if (document.getElementById('points0').checked) {
+//   pointsValue = document.getElementById('points0').value;
+// }
+
+
+
+//need to make sure its identifying it as integer and not string
+
+
+//https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
+
+
 
 
 //============Event Handler to replace answer choices w/ answer=======
