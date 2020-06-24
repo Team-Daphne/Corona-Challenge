@@ -78,21 +78,43 @@ function renderScenarioToPage(){
 
   var answerChoiceContainer = document.getElementById('answer-container');
 
+  // for (var i = 0; i < 4; i++){
+  //   var answerChoice = document.createElement('input');
+  //   answerChoice.type = 'radio';
+  //   answerChoiceContainer.appendChild(answerChoice);
 
-  for (var i = 0; i < 4; i++){
-    var answerChoice = document.createElement('input');
-    answerChoice.type = 'radio';
-    answerChoiceContainer.appendChild(answerChoice);
+  //   var answerLabel = document.createElement('label');
+  //   answerLabel.textContent = allScenarios[indexNumber].answerOptions[i];
+  //   answerChoiceContainer.appendChild(answerLabel);
+  // }
+//============test to replace above for loop========
+  var answerChoice = document.getElementById('label0');
+  answerChoice.textContent = allScenarios[indexNumber].answerOptions[0];
 
-    var answerLabel = document.createElement('label');
-    answerLabel.textContent = allScenarios[indexNumber].answerOptions[i];
-    answerChoiceContainer.appendChild(answerLabel);
+  var answerChoice = document.getElementById('label1');
+  answerChoice.textContent = allScenarios[indexNumber].answerOptions[1];
+
+  var answerChoice = document.getElementById('label2');
+  answerChoice.textContent = allScenarios[indexNumber].answerOptions[2];
+
+  var answerChoice = document.getElementById('label3');
+  answerChoice.textContent = allScenarios[indexNumber].answerOptions[3];
+//==========end test======
 
 
-  }
+  var submitButton = document.createElement('button');
+  submitButton.type = 'submit';
+  submitButton.style.width = '100px';
+  submitButton.style.height = '40px';
+  submitButton.style.marginTop = '50px';
+  submitButton.style.fontSize = '18pt';
+  submitButton.textContent = 'submit';
+  answerChoiceContainer.appendChild(submitButton);
+
   //TODO: DONE - CH change order of above so that the radio button shows before the text
   //TODO: make sure each answer is on a separate line
   //TODO: move button to check answer below everything else
+
   //referenced this webpage to discover how to set backgroundImage via JavaScript: https://code.likeagirl.io/js-set-a-background-using-code-1cc26cf96ce4// and https://www.w3schools.com/jsref/prop_style_background.asp
 
   // can use first one to target body, or use second (commented out) to target div, then style/size div in CSS; CH note - second option seems to work better leaving first in for temp. reference

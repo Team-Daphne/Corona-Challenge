@@ -1,8 +1,32 @@
 * {
     box-sizing: border-box;
+    font-size: 18pt;
+    font-weight: bold;
   }
   
   #background-image-div {
+      font-size: 18pt;
+      margin-top: 40px;
+      margin-left: 40px;
+      margin-right: auto;
       height: 600px;
+      width: 800px
   }
+
+  #scenario-container {
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+
+  #answer-container, #scenario-container {
+      margin-left: 30px;
+      margin-bottom: 20px;
+      width: 740px;
+  }
+
+form > button {
+    color: rgb(34, 34, 51);
+    background-color: bisque;
+}
+
 
