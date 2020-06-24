@@ -215,21 +215,14 @@ function renderCorrectAnswer(){
 
 var radioButtons = document.getElementsByName('answer-choice');
 for (var i = 0; i < radioButtons.length; i++){
-  radioButtons[i].onclick = function(){
-    console.log('rendered value to log:'+ radioButtons[i].value);
+  // radioButtons[i].onclick = function(){
+    // var checkTruth = radioButtons[i].checked;
+    if (radioButtons[i].checked)
+      var checkedButtonValue = radioButtons[i].value;
+      //  checkedButtonValue;
   };
-}
-
-
-//------------------- the below works to read the value, but doesnt work in click function
-
-// if (document.getElementById('points0').checked) {
-//   pointsValue = document.getElementById('points0').value;
 // }
 
-
-
-//need to make sure its identifying it as integer and not string
 
 
 //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
@@ -260,6 +253,7 @@ checkButton.addEventListener('submit', handleSubmitAnswer);
 
 function handleSubmitAnswer(event){
   event.preventDefault();
+  //insert function to check answer
   renderCorrectAnswer();
 }
 
