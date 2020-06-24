@@ -80,20 +80,21 @@ function renderScenarioToPage(){
 
 
   for (var i = 0; i < 4; i++){
-    var answerLabel = document.createElement('label');
-    answerLabel.textContent = allScenarios[indexNumber].answerOptions[i];
-
-    answerChoiceContainer.appendChild(answerLabel);
-
     var answerChoice = document.createElement('input');
-
     answerChoice.type = 'radio';
     answerChoiceContainer.appendChild(answerChoice);
-  }
-  //TODO: change order of above so that the radio button shows before the text
-  //TODO: make sure each answer is on a separate line
-  //TODO: move button to check answer below everything else 
 
+    var answerLabel = document.createElement('label');
+    answerLabel.textContent = allScenarios[indexNumber].answerOptions[i];
+    answerChoiceContainer.appendChild(answerLabel);
+
+
+  }
+  //TODO: DONE - CH change order of above so that the radio button shows before the text
+  //TODO: make sure each answer is on a separate line
+  //TODO: move button to check answer below everything else
+
+  document.body.style.backgroundImage = 'url('+ allScenarios[indexNumber].img +')';
 }
 
 function renderCorrectAnswer(){
