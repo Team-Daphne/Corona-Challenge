@@ -21,7 +21,7 @@ var travelLinks = [];
 function Scenario(img, question, answerOptions, pointValue, finalAnswer ){
   this.img = img;
   this.question = question;
-  this.answerOptions = [];
+  this.answerOptions = answerOptions;
   this.pointValue = pointValue;
   this.finalAnswer = finalAnswer;
   allScenarios.push(this);
@@ -57,41 +57,76 @@ function renderScenarioToPage(){
   var questionContainer = document.getElementById('scenario-container');
   var question = document.createElement('p');
 
-  //below is hard coded to first index for now, will need to change
   question.textContent = allScenarios[indexNumber].question;
   questionContainer.appendChild(question);
 
+  //----------------------- the above works to render the questions
 
+  var answerChoiceContainer = document.getElementById('answer-container');
+
+
+  for (var i = 0; i < 4; i++){
+    var answerLabel = document.createElement('label');
+    answerLabel.textContent = allScenarios[indexNumber].answerOptions[i];
+
+    answerChoiceContainer.appendChild(answerLabel);
+
+    var answerChoice = document.createElement('input');
+
+    answerChoice.type = 'radio';
+    answerChoiceContainer.appendChild(answerChoice);
+  }
+//TODO: change order of above so that the radio button shows before the text
+//TODO: make sure each answer is on a separate line
+//TODO: move button to check answer below everything else 
+
+
+
+
+
+}
+
+function renderCorrectAnswer(){
 
 };
 
-// function renderCorrectAnswer(){
 
-// };
+//add event listener
+
+var checkButton = document.getElementById('check-answer-button');
+checkButton.addEventListener('submit', function handleSubmitAnswer);
+
+function handleSubmitAnswer(event){
+  event.preventDefault();
+
+renderCorrectAnswer();
+};
 
 
-// //add event listener
-// function handleSubmitAnswer(event){
-// renderCorrectAnswer();
-// };
 
-// //add event listener
-// function handleClickNextQuestion(event2){
-//   renderScenarioToPage();
+//add event listener
+function handleClickNextQuestion(event2){
+  renderScenarioToPage();
 
-//   //incrementing gloabl var indexNumber in this function allows us to move through the allScenarios array
-//   indexNumber++;
-// };
+  //incrementing gloabl var indexNumber in this function allows us to move through the allScenarios array
+  indexNumber++;
+};
 
-// //handleSeeMyResults will transfer points to the result page
-// //and render the recomended links based off of quiz results and the user profile
-// //
-// function handleSeeMyResults(event3){
 
-// };
 
-// function updatePointEarned(){
+//handleSeeMyResults will transfer points to the result page
+//and render the recomended links based off of quiz results and the user profile
+//
+function handleSeeMyResults(event3){
 
-// };
+};
+
+
+
+function updatePointEarned(){
+
+};
+
+
 
 renderScenarioToPage();
