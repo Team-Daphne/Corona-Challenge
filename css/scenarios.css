@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    font-size: 18pt;
+    font-weight: bold;
+  }
+  
+  #background-image-div {
+      font-size: 18pt;
+      margin-top: 40px;
+      margin-left: 40px;
+      margin-right: auto;
+      height: 600px;
+      width: 800px
+  }
+
+  #scenario-container {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      width: 740px;
+  }
+
+  #answer-container, p {
+      margin-left: 40px;
+      margin-bottom: 20px;
+      width: 740px;
+  }
+
+form > button {
+    color: rgb(34, 34, 51);
+    background-color: bisque;
+}
+
+#answer-key {
+    list-style-type: none;
+    margin-left: 40pt;
+    margin-bottom: 30pt;
+}
+
+section > button {
+    float: right;
+    margin-right: 40px;
+    color: bisque;
+    background-color: rgb(34, 34, 51);
+}
+
+
+
