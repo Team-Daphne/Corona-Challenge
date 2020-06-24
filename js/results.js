@@ -11,11 +11,11 @@
 
 //we will need to access some of the things from app.js here
 // we're using the links constructor here to show results and links
-
 //============================Function Calls===========================
 renderResultsToPage();
 renderGameLinksToPage();
-renderInputLinksToPage();
+renderInputLinksToPage();//For some reason, if these calls are at the bottom, they won't render. If they are at the top, local storage wont gather
+
 var getProfileFromStorage = localStorage.getItem('storedProfile');
 var profileFromStorage = JSON.parse(getProfileFromStorage);
 
@@ -42,10 +42,11 @@ function handleDataFromForm (event){
   var travel = event.target.interest2.checked;
   var diningOut = event.target.interest3.checked;//nick helped us find this at https://stackoverflow.com/questions/14544104/checkbox-check-event-listener
   console.log('***', protests, travel, diningOut);
-
+  
   var userProfile = new User(playerName, playerAge, protests, travel, diningOut);
   var userProfileStringified = JSON.stringify(userProfile);
   localStorage.setItem('storedProfile', userProfileStringified);
+  document.getElementById('user-input').reset();//this clears form and may not be required
 }
 //==========================Render Results to Page==========================
 function renderResultsToPage(){
@@ -57,19 +58,19 @@ function renderResultsToPage(){
 
 //==========================Render Input Links to Page=================================
 function renderInputLinksToPage(){
-
+  
   // if(profileFromStorage.protests === true){
-
-  // }
-
-  var linksList = document.getElementById('user-choice');
-  var listContent = document.createElement('a');
+    
+    var linksList = document.getElementById('user-choice');
+    var listContent = document.createElement('a');
   var choicesLink = document.createTextNode('Gatherings Link');
   listContent.appendChild(choicesLink);
   listContent.href = gatheringLink.link;//can make this access array of links when done
   listContent.target = '_blank',
   linksList.appendChild(listContent);
   //figured out how to link from js at https://www.geeksforgeeks.org/how-to-create-a-link-in-javascript/ and how to make it open in a new tab at https://www.thesitewizard.com/html-tutorial/open-links-in-new-window-or-tab.shtml#:~:text=How%20to%20Open%20Hyperlinks%20in,your%20links%20(anchor%20tags).&text=Now%20when%20your%20visitors%20click,how%20they%20configured%20that%20browser).
+  // }
+
 }
 
 //==========================Render Game Links to Page=================================
@@ -82,6 +83,7 @@ function renderGameLinksToPage(){
   listContent.target = '_blank',
   linksList.appendChild(listContent);
 }
+
 
 
 
