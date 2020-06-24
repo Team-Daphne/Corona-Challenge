@@ -16,10 +16,12 @@
   #scenario-container {
       padding-top: 20px;
       padding-bottom: 20px;
+      margin-bottom: 20px;
+      width: 740px;
   }
 
-  #answer-container, #scenario-container {
-      margin-left: 30px;
+  #answer-container, p {
+      margin-left: 40px;
       margin-bottom: 20px;
       width: 740px;
   }
@@ -28,5 +30,19 @@ form > button {
     color: rgb(34, 34, 51);
     background-color: bisque;
 }
+
+#answer-key {
+    list-style-type: none;
+    margin-left: 40pt;
+    margin-bottom: 30pt;
+}
+
+section > button {
+    float: right;
+    margin-right: 40px;
+    color: bisque;
+    background-color: rgb(34, 34, 51);
+}
+
 
 

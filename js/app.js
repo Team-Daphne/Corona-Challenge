@@ -18,11 +18,12 @@ var travelLinks = [];
 //arrSum (of pointsEarned []);
 
 //====================== Constructor Function =======================================
-function Scenario(img, question, answerOptions, pointValue, finalAnswer ){
+function Scenario(img, question, answerOptions, pointValue, finalAnswerKey, finalAnswer){
   this.img = img;
   this.question = question;
   this.answerOptions = answerOptions;
   this.pointValue = pointValue;
+  this.finalAnswerKey = finalAnswerKey;
   this.finalAnswer = finalAnswer;
   allScenarios.push(this);
 }
@@ -40,15 +41,17 @@ var handShake = new Scenario(
   'Somebody approaches you with an outstretched hand for a handshake. What should you do?',
   ['Hold your hand to your heart in order to politely decline.', 'Offer a fist bump instead.', 'Go ahead and shake their hand.', 'Embrace them in a bear hug instead.'],
   [0, 1, 2, 3],
-  'The best option is to hold your hand to your heart and politely decline. Point value: hand over heart (0), fist bump (1), handshake (2), hug (3).'
+  ['0 pt: Hold your hand to your heart in order to politely decline.', '1 pt: Offer a fist bump instead.', '2 pt: Go ahead and shake their hand.', '3 pt: Embrace them in a bear hug instead.'],
+  'The best option is always to avoid any unnecessary contact! Holding your hand to your heart is a polite way to decline a handshake.'
 );
 
 var handwashing = new Scenario(
   'images/handwashing-lg.jpg',
   'You return home for the day and need to clean your hands. Describe your procedure...',
-  ['Soap and water scrub long enough to sing Twinkle, Twinkle, Little Star - twice', 'a few pumps of hand sanitizer from the container as you walk in the door', 'a quick rinse from the outside hose before you walk in the door', 'wipe your hands on your pants before you open your front door'],
+  ['Scrub with soap and water for 20 seconds', 'A few pumps of hand sanitizer before you touch anything in your home', 'A quick rinse from the hose before you walk inside', 'Wipe your hands on your pants before you open your front door'],
   [0, 1, 2, 3],
-  'Singing Twinkle Twinkle Little Star twice ensures you\'ve washed your hands for a minimum of 20 seconds. Point value: Twinkle Twinkle (0), hand sanitizer (1), hose (2), pants (3).'
+  ['0 pt: Scrub with soap and water for 20 seconds', '1 pt: A few pumps of hand sanitizer before you touch anything in your home', '2 pt: A quick rinse from the hose before you walk inside', '3 pt: Wipe your hands on your pants before you open your front door'],
+  'Although you could certainly pick another song, singing Twinkle Twinkle Little Star twice ensures you\'ve washed your hands for a minimum of 20 seconds.'
 );
 
 
@@ -87,19 +90,19 @@ function renderScenarioToPage(){
   //   answerLabel.textContent = allScenarios[indexNumber].answerOptions[i];
   //   answerChoiceContainer.appendChild(answerLabel);
   // }
-//============test to replace above for loop========
+  //============test to replace above for loop========
   var answerChoice = document.getElementById('label0');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[0];
 
-  var answerChoice = document.getElementById('label1');
+  answerChoice = document.getElementById('label1');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[1];
 
-  var answerChoice = document.getElementById('label2');
+  answerChoice = document.getElementById('label2');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[2];
 
-  var answerChoice = document.getElementById('label3');
+  answerChoice = document.getElementById('label3');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[3];
-//==========end test======
+  //==========end test======
 
 
   var submitButton = document.createElement('button');
@@ -111,9 +114,9 @@ function renderScenarioToPage(){
   submitButton.textContent = 'submit';
   answerChoiceContainer.appendChild(submitButton);
 
-  //TODO: DONE - CH change order of above so that the radio button shows before the text
-  //TODO: make sure each answer is on a separate line
-  //TODO: move button to check answer below everything else
+  //TODO: CH DONE - change order of above so that the radio button shows before the text
+  //TODO: CH DONE (with reconfig) make sure each answer is on a separate line
+  //TODO: CH DONE (with reconfig) move button to check answer below everything else
 
   //referenced this webpage to discover how to set backgroundImage via JavaScript: https://code.likeagirl.io/js-set-a-background-using-code-1cc26cf96ce4// and https://www.w3schools.com/jsref/prop_style_background.asp
 
@@ -129,10 +132,37 @@ function renderScenarioToPage(){
 }
 
 function renderCorrectAnswer(){
-  var answerChoiceContainer = document.getElementById('answer-container');
-  var answerLabel = document.createElement('p');
-  answerLabel.textContent = allScenarios[indexNumber].finalAnswer;
-  answerChoiceContainer.parentNode.replaceChild(answerLabel, answerChoiceContainer);
+  // var answerChoiceContainer = document.getElementById('answer-container');
+  // var answerLabel = document.createElement('p');
+  // answerLabel.textContent = allScenarios[indexNumber].finalAnswer;
+  // answerChoiceContainer.parentNode.replaceChild(answerLabel, answerChoiceContainer);
+
+  //test to replace===
+  document.getElementById('answer-container').style.display = 'none';
+  var answerKey = document.getElementById('answer-key');
+  for (var i=0; i < 4; i++){
+    var answerChoice = document.createElement('li');
+    answerChoice.textContent = allScenarios[indexNumber].finalAnswerKey[i];
+    answerKey.appendChild(answerChoice);
+  }
+  var finalAnswerContainer = document.getElementById('final-answer-section');
+  var finalAnswerText = document.createElement('p');
+  finalAnswerText.textContent = allScenarios[indexNumber].finalAnswer;
+  finalAnswerContainer.appendChild(finalAnswerText);
+
+  var nextButtonHolder = document.getElementById('next-button-holder');
+  var nextQuestionButton = document.createElement('button');
+  nextQuestionButton.type = 'click';
+  nextQuestionButton.setAttribute('id', 'next-button');//adds an ID to newly created element!
+  nextQuestionButton.onclick = handleClickNextQuestion; //event listener IS HERE
+  nextQuestionButton.style.width = '100px';
+  nextQuestionButton.style.height = '40px';
+  nextQuestionButton.style.marginTop = '50px';
+  nextQuestionButton.style.fontSize = '18pt';
+  nextQuestionButton.textContent = 'Next';
+  nextButtonHolder.appendChild(nextQuestionButton);
+
+//end test==
 }
 
 //============Event Handler to replace answer choices w/ answer=======
@@ -145,13 +175,16 @@ function handleSubmitAnswer(event){
   renderCorrectAnswer();
 }
 
-// //add event listener
-// function handleClickNextQuestion(event2){
-//   renderScenarioToPage();
+//add event listener
+// var nextButton = document.getElementById('next-button');
+// nextButton.addEventListener('click', handleClickNextQuestion);
 
-//   //incrementing global var indexNumber in this function allows us to move through the allScenarios array
-//   indexNumber++;
-// };
+function handleClickNextQuestion(event2){
+  //incrementing global var indexNumber in this function allows us to move through the allScenarios array
+  event2.preventDefault();
+  indexNumber++;
+  renderScenarioToPage();
+}
 
 
 
@@ -160,13 +193,13 @@ function handleSubmitAnswer(event){
 // //
 // function handleSeeMyResults(event3){
 
-// };
+// }
 
 
 
 // function updatePointEarned(){
 
-// };
+// }
 
 
 
