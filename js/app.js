@@ -68,18 +68,25 @@ var handwashingLink = new OutsideLinks(
 );
 
 //====================== Functions =======================================
-
-//happens upon page load and anytime they click next question
+function makeSubmitButton() {
+  var answerChoiceContainer = document.getElementById('answer-container');
+  var submitButton = document.createElement('button');
+  submitButton.type = 'submit';
+  submitButton.style.width = '100px';
+  submitButton.style.height = '40px';
+  submitButton.style.marginTop = '50px';
+  submitButton.style.fontSize = '18pt';
+  submitButton.textContent = 'submit';
+  answerChoiceContainer.appendChild(submitButton);
+}
+//happens upon page load and anytime they click next question!!
 function renderScenarioToPage(){
   var questionContainer = document.getElementById('scenario-container');
-  var question = document.createElement('p');
-
+  var question = document.getElementById('the-question');
   question.textContent = allScenarios[indexNumber].question;
   questionContainer.appendChild(question);
 
   //----------------------- the above works to render the questions
-
-  var answerChoiceContainer = document.getElementById('answer-container');
 
   // for (var i = 0; i < 4; i++){
   //   var answerChoice = document.createElement('input');
@@ -102,17 +109,8 @@ function renderScenarioToPage(){
 
   answerChoice = document.getElementById('label3');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[3];
+
   //==========end test======
-
-
-  var submitButton = document.createElement('button');
-  submitButton.type = 'submit';
-  submitButton.style.width = '100px';
-  submitButton.style.height = '40px';
-  submitButton.style.marginTop = '50px';
-  submitButton.style.fontSize = '18pt';
-  submitButton.textContent = 'submit';
-  answerChoiceContainer.appendChild(submitButton);
 
   //TODO: CH DONE - change order of above so that the radio button shows before the text
   //TODO: CH DONE (with reconfig) make sure each answer is on a separate line
@@ -129,6 +127,21 @@ function renderScenarioToPage(){
   document.getElementById('background-image-div').style.backgroundImage = 'url('+ allScenarios[indexNumber].img +')';
   document.getElementById('background-image-div').style.backgroundRepeat = 'repeat-y';
   document.getElementById('background-image-div').style.backgroundSize = 'cover';
+  makeSubmitButton();
+}
+
+function makeNextButton() {
+  var nextButtonHolder = document.getElementById('next-button-holder');
+  var nextQuestionButton = document.createElement('button');
+  nextQuestionButton.type = 'click';
+  nextQuestionButton.setAttribute('id', 'next-button');//adds an ID to newly created element!
+  nextQuestionButton.onclick = handleClickNextQuestion; //event listener IS HERE
+  nextQuestionButton.style.width = '100px';
+  nextQuestionButton.style.height = '40px';
+  nextQuestionButton.style.marginTop = '50px';
+  nextQuestionButton.style.fontSize = '18pt';
+  nextQuestionButton.textContent = 'Next';
+  nextButtonHolder.appendChild(nextQuestionButton);
 }
 
 function renderCorrectAnswer(){
@@ -137,7 +150,6 @@ function renderCorrectAnswer(){
   // answerLabel.textContent = allScenarios[indexNumber].finalAnswer;
   // answerChoiceContainer.parentNode.replaceChild(answerLabel, answerChoiceContainer);
 
-  //test to replace===
   document.getElementById('answer-container').style.display = 'none';
   var answerKey = document.getElementById('answer-key');
   for (var i=0; i < 4; i++){
@@ -150,22 +162,18 @@ function renderCorrectAnswer(){
   finalAnswerText.textContent = allScenarios[indexNumber].finalAnswer;
   finalAnswerContainer.appendChild(finalAnswerText);
 
-  var nextButtonHolder = document.getElementById('next-button-holder');
-  var nextQuestionButton = document.createElement('button');
-  nextQuestionButton.type = 'click';
-  nextQuestionButton.setAttribute('id', 'next-button');//adds an ID to newly created element!
-  nextQuestionButton.onclick = handleClickNextQuestion; //event listener IS HERE
-  nextQuestionButton.style.width = '100px';
-  nextQuestionButton.style.height = '40px';
-  nextQuestionButton.style.marginTop = '50px';
-  nextQuestionButton.style.fontSize = '18pt';
-  nextQuestionButton.textContent = 'Next';
-  nextButtonHolder.appendChild(nextQuestionButton);
-
-//end test==
+  makeNextButton();
 }
 
 //============Event Handler to replace answer choices w/ answer=======
+
+function handleClickNextQuestion(event2){
+  //incrementing global var indexNumber in this function allows us to move through the allScenarios array
+  // event2.preventDefault();
+  indexNumber++;
+  document.getElementById('next-button-holder').style.display = 'none';
+  renderScenarioToPage();
+}
 
 var checkButton = document.getElementById('answer-container');
 checkButton.addEventListener('submit', handleSubmitAnswer);
@@ -179,12 +187,6 @@ function handleSubmitAnswer(event){
 // var nextButton = document.getElementById('next-button');
 // nextButton.addEventListener('click', handleClickNextQuestion);
 
-function handleClickNextQuestion(event2){
-  //incrementing global var indexNumber in this function allows us to move through the allScenarios array
-  event2.preventDefault();
-  indexNumber++;
-  renderScenarioToPage();
-}
 
 
 
