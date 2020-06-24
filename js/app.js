@@ -80,16 +80,6 @@ function makeSubmitButton() {
   answerChoiceContainer.appendChild(submitButton);
 }
 
-// function displayAnswerContainer (){
-//   var answerContainer = document.getElementById('answer-container');
-//   var displayStatus = answerContainer.display;
-//   if (displayStatus === 'none'){
-//     answerContainer.style.display = 'block';
-//   } else {
-//     answerContainer.style.display = 'none';
-//   }
-// }
-
 //happens upon page load and anytime they click next question!!
 function renderScenarioToPage(){
   //hide the other thing here
@@ -123,7 +113,7 @@ function renderScenarioToPage(){
   //   answerLabel.textContent = allScenarios[indexNumber].answerOptions[i];
   //   answerChoiceContainer.appendChild(answerLabel);
   // }
-  //============test to replace above for loop========
+
   var answerChoice = document.getElementById('label0');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[0];
 
@@ -136,11 +126,8 @@ function renderScenarioToPage(){
   answerChoice = document.getElementById('label3');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[3];
 
-  //==========end test======
 
-  //TODO: CH DONE - change order of above so that the radio button shows before the text
-  //TODO: CH DONE (with reconfig) make sure each answer is on a separate line
-  //TODO: CH DONE (with reconfig) move button to check answer below everything else
+
 
   //referenced this webpage to discover how to set backgroundImage via JavaScript: https://code.likeagirl.io/js-set-a-background-using-code-1cc26cf96ce4// and https://www.w3schools.com/jsref/prop_style_background.asp
 
