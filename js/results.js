@@ -11,6 +11,10 @@
 
 //we will need to access some of the things from app.js here
 // we're using the links constructor here to show results and links
+//============================Function Calls===========================
+renderResultsToPage();
+renderGameLinksToPage();
+renderInputLinksToPage();//For some reason, if these calls are at the bottom, they won't render. If they are at the top, local storage wont gather
 
 var getProfileFromStorage = localStorage.getItem('storedProfile');
 var profileFromStorage = JSON.parse(getProfileFromStorage);
@@ -53,6 +57,7 @@ function renderResultsToPage(){
 }
 
 //==========================Render Input Links to Page=================================
+
 function renderInputLinksToPage(){
   
   // if(profileFromStorage.protests === true){
@@ -86,9 +91,4 @@ function renderInputLinksToPage(){
   
   
   
-  
-  //============================Function Calls===========================
-  renderResultsToPage();
-  renderGameLinksToPage();
-  renderInputLinksToPage();//For some reason, if these calls are at the bottom, they won't render. If they are at the top, local storage wont gather
   
