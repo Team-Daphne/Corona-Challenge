@@ -224,7 +224,6 @@ for (var i = 0; i < radioButtons.length; i++){
 
     pointsEarned.push(checkedButtonValue);
   }
-
 //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
 
 
