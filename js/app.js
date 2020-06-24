@@ -36,7 +36,7 @@ function OutsideLinks(text, link){
 //====================== Scenario Objects =======================================
 
 var handShake = new Scenario(
-  'images/handshake.png',
+  'images/handshake-copy.png',
   'Somebody approaches you with an outstretched hand for a handshake. What should you do?',
   ['Hold your hand to your heart in order to politely decline.', 'Offer a fist bump instead.', 'Go ahead and shake their hand.', 'Embrace them in a bear hug instead.'],
   [0, 1, 2, 3],
@@ -44,7 +44,7 @@ var handShake = new Scenario(
 );
 
 var handwashing = new Scenario(
-  'images/handwashing.jpg',
+  'images/handwashing-lg.jpg',
   'You return home for the day and need to clean your hands. Describe your procedure...',
   ['Soap and water scrub long enough to sing Twinkle, Twinkle, Little Star - twice', 'a few pumps of hand sanitizer from the container as you walk in the door', 'a quick rinse from the outside hose before you walk in the door', 'wipe your hands on your pants before you open your front door'],
   [0, 1, 2, 3],
@@ -93,8 +93,17 @@ function renderScenarioToPage(){
   //TODO: DONE - CH change order of above so that the radio button shows before the text
   //TODO: make sure each answer is on a separate line
   //TODO: move button to check answer below everything else
+  //referenced this webpage to discover how to set backgroundImage via JavaScript: https://code.likeagirl.io/js-set-a-background-using-code-1cc26cf96ce4// and https://www.w3schools.com/jsref/prop_style_background.asp
 
-  document.body.style.backgroundImage = 'url('+ allScenarios[indexNumber].img +')';
+  // can use first one to target body, or use second (commented out) to target div, then style/size div in CSS; CH note - second option seems to work better leaving first in for temp. reference
+
+  // document.body.style.background = 'url('+ allScenarios[indexNumber].img +')';
+  // document.body.style.backgroundRepeat = 'repeat-y';
+  // document.body.style.backgroundSize = '700px';
+
+  document.getElementById('background-image-div').style.backgroundImage = 'url('+ allScenarios[indexNumber].img +')';
+  document.getElementById('background-image-div').style.backgroundRepeat = 'repeat-y';
+  document.getElementById('background-image-div').style.backgroundSize = 'cover';
 }
 
 function renderCorrectAnswer(){
