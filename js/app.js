@@ -217,18 +217,16 @@ function renderCorrectAnswer(){
 function registerAnswer(){
   var radioButtons = document.getElementsByName('answer-choice');
   for (var i = 0; i < radioButtons.length; i++){
-    // radioButtons[i].onclick = function(){
-      // var checkTruth = radioButtons[i].checked;
+  
     if (radioButtons[i].checked)
       var checkedButtonValue = parseInt(radioButtons[i].value);
       console.log()
       
-      // console.log('nice job' + pointsEarned)
+  
     }
     
     totalPoints += checkedButtonValue;
-    pointsEarned.push(checkedButtonValue);
-    // dailytotalStore += this.hourlyCookies[i];
+ 
   }
   //reduced
   //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
@@ -251,6 +249,7 @@ function handleClickNextQuestion(event2){
   renderScenarioToPage();
 }
 //removed event3from parenthesis
+// var finalPointTotal = totalPoints
 function handleClickSeeResults() {
   location.href = 'results.html';
 }
