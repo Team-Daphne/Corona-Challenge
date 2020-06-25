@@ -11,7 +11,6 @@ var totalPoints = 0;
 // var totalPoints = arrSum(pointsEarned);
 //a
 
-
 var goodScoreLinks = [];
 var badScoreLinks = handwashingLink;
 
