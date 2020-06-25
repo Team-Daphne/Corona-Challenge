@@ -7,8 +7,10 @@ var allScenarios = [];
 var indexNumber = 0;
 
 var pointsEarned = [];
-//arrSum (of pointsEarned []);
 var totalPoints = 0;
+// var totalPoints = arrSum(pointsEarned);
+//a
+
 
 var goodScoreLinks = [];
 var badScoreLinks = handwashingLink;
@@ -212,28 +214,24 @@ function renderCorrectAnswer(){
 
 
 //---------the below works to access the button thats clicked, but we need to figure out how to read value of it
-
-var radioButtons = document.getElementsByName('answer-choice');
-for (var i = 0; i < radioButtons.length; i++){
-  radioButtons[i].onclick = function(){
-    console.log('rendered value to log:'+ radioButtons[i].value);
-  };
-}
-
-
-//------------------- the below works to read the value, but doesnt work in click function
-
-// if (document.getElementById('points0').checked) {
-//   pointsValue = document.getElementById('points0').value;
-// }
-
-
-
-//need to make sure its identifying it as integer and not string
-
-
-//https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
-
+function registerAnswer(){
+  var radioButtons = document.getElementsByName('answer-choice');
+  for (var i = 0; i < radioButtons.length; i++){
+  
+    if (radioButtons[i].checked)
+      var checkedButtonValue = parseInt(radioButtons[i].value);
+      console.log()
+      
+  
+    }
+    
+    totalPoints += checkedButtonValue;
+ 
+  }
+  //reduced
+  //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
+  
+  // var totalPoints = arrSum(pointsEarned);
 
 
 
@@ -251,6 +249,7 @@ function handleClickNextQuestion(event2){
   renderScenarioToPage();
 }
 //removed event3from parenthesis
+// var finalPointTotal = totalPoints
 function handleClickSeeResults() {
   location.href = 'results.html';
 }
@@ -260,7 +259,10 @@ checkButton.addEventListener('submit', handleSubmitAnswer);
 
 function handleSubmitAnswer(event){
   event.preventDefault();
+  //insert function to check answer
+  registerAnswer();
   renderCorrectAnswer();
+
 }
 
 
