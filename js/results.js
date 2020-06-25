@@ -158,7 +158,7 @@ function renderInputLinksToPage(){
     }else{
       var choiceMessage = document.getElementById('user-choice');
       var choiceMessageContent = document.createElement('p');
-      choiceMessageContent.textContent= 'Based on your input on the form, you might enjoy these articles.';
+      choiceMessageContent.textContent= 'Based on your interests, you might enjoy these articles.';
       choiceMessage.appendChild(choiceMessageContent);
     }
   }
@@ -195,10 +195,18 @@ function renderInputLinksToPage(){
 function renderAgeLinksToPage(){
 
   if(finalPointsFromStorage !== null){
-    var ageMessage = document.getElementById('user-age');
-    var ageMessageContent = document.createElement('p');
-    ageMessageContent.textContent= 'Based on your age, you might find this article enlightening.';
-    ageMessage.appendChild(ageMessageContent);
+    //TODO: insert if statement to have different content based on age
+    if(profileFromStorage.age > '59'){
+      var ageMessage = document.getElementById('user-age');
+      var ageMessageContent = document.createElement('p');
+      ageMessageContent.textContent= 'You\'re age places you in a high risk category, you might find this link helpful.';
+      ageMessage.appendChild(ageMessageContent);
+    } else{
+      var ageMessage = document.getElementById('user-age');
+      var ageMessageContent = document.createElement('p');
+      ageMessageContent.textContent= 'Even though you\'re age doesn\'t place you in a high risk category, you still might find this link helpful.';
+      ageMessage.appendChild(ageMessageContent);
+    }
   }
   if(profileFromStorage.age > '59'){
     var ageList = document.getElementById('user-age1');
