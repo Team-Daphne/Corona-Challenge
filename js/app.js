@@ -293,7 +293,31 @@ function registerAnswer(){
   }
 
   totalPoints += checkedButtonValue;
+  console.log(checkedButtonValue);
 }
+
+//implemnt for loop
+//need to increment by pixels by movement on the screen
+//how to make a animated progeress bar in java script
+function renderTotalScore(){
+
+var thermometer = document.getElementById('displayed-score');
+if (indexNumber === 0){
+  var displayedScore = document.createElement('p');
+  displayedScore.textContent = totalPoints;
+}else{
+  var displayedScore = document.getElementsByTagName('p')[1];
+  console.log(displayedScore)
+  displayedScore.textContent = totalPoints;
+}
+
+thermometer.appendChild(displayedScore);
+
+
+}
+
+
+
 
 //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
 
@@ -324,9 +348,12 @@ function handleClickSeeResults() {
 
 function handleSubmitAnswer(event){
   event.preventDefault();
+
+  renderTotalScore();
   registerAnswer();
   renderCorrectAnswer();
   clearRadioButtons();
+
 }
 
 //https://stackoverflow.com/questions/2554116/how-to-clear-radio-button-in-javascript

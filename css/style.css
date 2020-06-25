@@ -185,8 +185,9 @@ h3{
 
 li{
   margin: 10px;
-  /* background-color: lightblue; */
+  background-color: lightblue;
 }
+
 
 #feedback-form{
   margin-top: 80px;
@@ -205,5 +206,6 @@ textarea{
   font-family: 'Roboto', sans-serif;
   
 }
+
 
 
