@@ -8,16 +8,16 @@ var indexNumber = 0;
 
 var pointsEarned = [];
 var totalPoints = 0;
+var finalPointTotal; //to hold tally before going to results page
 // var totalPoints = arrSum(pointsEarned);
-//a
 
+var goodScoreLinks = [reopenLink, essentialErrandsLink, goOutLink];
+var badScoreLinks = [handwashingLink, feelingSick, sixFeetLink];
 
-var goodScoreLinks = [];
-var badScoreLinks = handwashingLink;
 
 var protestLinks = gatheringLink;
-var diningLinks = [];
-var travelLinks = [];
+var diningLinks = diningOutLink;
+var travelLinks = travelLink;
 
 //====================== Constructor Function =======================================
 function Scenario(img, question, answerOptions, pointValue, finalAnswerKey, finalAnswer){
@@ -64,6 +64,32 @@ var handwashing = new Scenario(
   'Although you could certainly pick another song, singing Twinkle Twinkle Little Star twice ensures you\'ve washed your hands for a minimum of 20 seconds.'
 );
 
+var groceries = new Scenario(
+  'images/groceries.jpg',
+  'Your food supply is running low and you’ve decided it’s time to venture out for groceries. How should you best do this?',
+  ['If online grocery delivery isn’t an option, wear your face mask and practice diligent social distancing at the store. Use hand sanitizer when done, wash your hands when you return home.', 'Grab your face mask and all your reusable bags from home, and head to the grocery store.', 'Don’t worry about the face mask, some stores don’t require it.', 'Head to the grocery store, business as usual! Nothing to worry about, we all wash our fruit and vegetables anyway.'],
+  [0, 1, 2, 3],
+  ['0 pt: If online grocery delivery isn’t an option, wear your face mask and practice diligent social distancing at the store. Use hand sanitizer when done, wash your hands when you return home.', '1 pt: Grab your face mask and all your reusable bags from home, and head to the grocery store.', '2 pt: Don’t worry about the face mask, some stores don’t require it.', '3 pt: Head to the grocery store, business as usual! Nothing to worry about, we all wash our fruit and vegetables anyway.'],
+  'From the CDC: “Recent studies indicate that a significant portion of individuals with coronavirus lack symptoms (“asymptomatic”) and that even those who eventually develop symptoms (“pre-symptomatic”) can transmit the virus to others before showing symptoms.” Please wear a mask when you\'re out and about!'
+);
+
+var hiking = new Scenario(
+  'images/hiking.jpeg',
+  'The state is starting to reopen, so you’re out hiking and realize you’re on an overcrowded trail. You know you need to maintain social distance, how should you handle this?',
+  ['The state is starting to reopen, so you’re out hiking and realize you’re on an overcrowded trail. You know you need to maintain social distance, how should you handle this?', 'Leave and find another trail that’s not as crowded.', 'Keep a distance of at least 6 feet between you and other hikers.', 'Hold out your arms… your arm length is a big enough distance.', 'Don’t worry - as long as you’re wearing a mask, it doesn’t matter.'],
+  [0, 1, 2, 3],
+  ['0 pt: Leave and find another trail that’s not as crowded.', '1 pt: Keep a distance of at least 6 feet between you and other hikers', '2 pt: Hold out your arms …your arm length is a big enough distance.', '3 pt: Don’t worry - as long as you’re wearing a mask, it doesn’t matter.'],
+  'Do your research! Head for less popular trails, and have a few back-ups in mind in case your first choice is crowded. If you’re encounter other hikers, try to maintain a distance of 6 feet between you and any other hikers (that’s about the width of an average sedan). You should definitely bring hand sanitizer and your face mask, but maintaining distance is the best line of defense.'
+);
+
+var feelingSick = new Scenario(
+  'images/sick.png',
+  'You’ve followed all the recommendations, but are starting to feel a bit sick. What is your best course of action?',
+  ['If you have any emergency warning signs, seek medical help immediately. Otherwise, stay home, keep track of your symptoms and contact your healthcare provider.', 'Wear your face mask and go to your neighborhood pharmacy for over-the-counter relief of mild symptoms.', 'Stay home and tough it out; it probably isn’t anything to worry about.', 'Take the bus to the hospital immediately, no time to grab your face mask.'],
+  [0, 1, 2, 3],
+  ['0 pt: If you have any emergency warning signs, seek medical help immediately. Otherwise, stay home, keep track of your symptoms and contact your healthcare provider.', '1 pt: Wear your face mask and go to your neighborhood pharmacy for over-the-counter relief of mild symptoms.', '2 pt: Stay home and tough it out; it probably isn’t anything to worry about.', '3 pt: Take the bus to the hospital immediately, no time to grab your face mask.'],
+  'Most people who experience mild illness are able to recover from home, but it’s wise to contact your health care provider if you believe you’ve been exposed to COVID-19. It’s also critical to minimize the risk of transmission to your community, so if you need to leave your house for medical treatment or other critical reasons, you should take every precaution. This includes wearing a face covering and maintaining social distance.'
+);
 
 //====================== link objects =======================================
 
@@ -77,6 +103,46 @@ var handwashingLink = new OutsideLinks(
   'https://www.cdc.gov/handwashing/when-how-handwashing.html'
 );
 
+var hikingLink = new OutsideLinks(
+  'WTA: Hiking in the Time of Coronavirus',
+  'https://www.wta.org/go-outside/social-distancing-hiking-in-the-time-of-coronavirus'
+);
+
+var ifSickLink = new OutsideLinks(
+  'CDC: What to Do If You Are Sick',
+  'https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html'
+);
+
+var essentialErrandsLink = new OutsideLinks(
+  'CDC: Running Essential Errands',
+  'https://www.cdc.gov/coronavirus/2019-ncov/daily-life-coping/essential-goods-services.html'
+);
+
+var sixFeetLink = new OutsideLinks(
+  'CNN: Social distancing means standing 6 feet apart',
+  'https://www.cnn.com/2020/03/24/health/six-feet-social-distance-explainer-coronavirus-wellness/index.html'
+);
+
+var goOutLink = new OutsideLinks(
+  'CNN: Deciding to Go Out',
+  'https://www.cdc.gov/coronavirus/2019-ncov/daily-life-coping/deciding-to-go-out.html'
+);
+
+var reopenLink = new OutsideLinks(
+  'How We Reopen Safely',
+  'https://www.covidexitstrategy.org/'
+);
+
+var diningOutLink = new OutsideLinks(
+  'CDC: Considerations for Restaurants and Bars',
+  'https://www.cdc.gov/coronavirus/2019-ncov/community/organizations/business-employers/bars-restaurants.html'
+);
+
+var travelLink = new OutsideLinks(
+  'CDC: Considerations for Travelers',
+  'https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-in-the-us.html'
+);
+
 //====================== Functions =======================================
 function makeSubmitButton() {
   var answerChoiceContainer = document.getElementById('answer-container');
@@ -86,11 +152,11 @@ function makeSubmitButton() {
   submitButton.style.height = '40px';
   submitButton.style.marginTop = '50px';
   submitButton.style.fontSize = '18pt';
-  submitButton.textContent = 'submit';
+  submitButton.textContent = 'Submit';
   answerChoiceContainer.appendChild(submitButton);
 }
 
-//happens upon page load and anytime they click next question!!
+//happens upon page load and anytime they click next question
 function renderScenarioToPage(){
   //hide the other thing here
   document.getElementById('answer-key').style.display = 'none';
@@ -136,16 +202,7 @@ function renderScenarioToPage(){
   answerChoice = document.getElementById('label3');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[3];
 
-
-
-
   //referenced this webpage to discover how to set backgroundImage via JavaScript: https://code.likeagirl.io/js-set-a-background-using-code-1cc26cf96ce4// and https://www.w3schools.com/jsref/prop_style_background.asp
-
-  // can use first one to target body, or use second (commented out) to target div, then style/size div in CSS; CH note - second option seems to work better leaving first in for temp. reference
-
-  // document.body.style.background = 'url('+ allScenarios[indexNumber].img +')';
-  // document.body.style.backgroundRepeat = 'repeat-y';
-  // document.body.style.backgroundSize = '700px';
 
   document.getElementById('background-image-div').style.backgroundImage = 'url('+ allScenarios[indexNumber].img +')';
   document.getElementById('background-image-div').style.backgroundRepeat = 'repeat-y';
@@ -209,12 +266,18 @@ function renderCorrectAnswer(){
     makeNextButton();
   } else {
     makeSeeResultsButton();
+    putFinalScoreInStorage();
   }
 }
 
+//put totalPoints in local storage for retrieval in results.js
+function putFinalScoreInStorage() {
+  finalPointTotal = totalPoints;
+  var finalPointTotalStringified = JSON.stringify(finalPointTotal);
+  localStorage.setItem('storedPoints', finalPointTotalStringified);
+}
 
 
-//when we click submit on the last question, we DON"T want renderScenarioToPage, we want new function that shows "get results button"
 
 //=================== Getting value from radio buttons =================
 
@@ -225,21 +288,17 @@ function renderCorrectAnswer(){
 function registerAnswer(){
   var radioButtons = document.getElementsByName('answer-choice');
   for (var i = 0; i < radioButtons.length; i++){
-  
+
     if (radioButtons[i].checked)
       var checkedButtonValue = parseInt(radioButtons[i].value);
-      console.log()
-      
-  
-    }
-    
-    totalPoints += checkedButtonValue;
- 
   }
-  //reduced
-  //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
-  
-  // var totalPoints = arrSum(pointsEarned);
+
+  totalPoints += checkedButtonValue;
+}
+
+//https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
+
+// var totalPoints = arrSum(pointsEarned);
 
 
 

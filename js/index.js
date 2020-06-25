@@ -1,10 +1,11 @@
-
+'use strict';
 //==========================AddEventLIstener============================
 function listenForSubmit(){
   var transferInfoToResultsPage = document.getElementById('user-input');
   transferInfoToResultsPage.addEventListener('submit', handleDataFromForm);
 }
 listenForSubmit();
+
 
 //=========================Callback Function======================
 function handleDataFromForm (event){
@@ -15,9 +16,13 @@ function handleDataFromForm (event){
   var travel = event.target.interest2.checked;
   var diningOut = event.target.interest3.checked;//nick helped us find this at https://stackoverflow.com/questions/14544104/checkbox-check-event-listener
   console.log('***', protests, travel, diningOut);
-  
+
   var userProfile = new User(playerName, playerAge, protests, travel, diningOut);
   var userProfileStringified = JSON.stringify(userProfile);
   localStorage.setItem('storedProfile', userProfileStringified);
   document.getElementById('user-input').reset();//this clears form and may not be required
+  document.getElementById('submit-user').style.display = 'none';
+  document.getElementById('start-challenge').style.display = 'block';
 }
+
+
