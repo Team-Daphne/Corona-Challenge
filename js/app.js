@@ -303,12 +303,17 @@ function registerAnswer(){
 function renderTotalScore(){
 
 var thermometer = document.getElementById('displayed-score');
-
-var displayedScore = document.createElement('p');
-
-displayedScore.textContent = totalPoints;
+if (indexNumber === 0){
+  var displayedScore = document.createElement('p');
+  displayedScore.textContent = totalPoints;
+}else{
+  var displayedScore = document.getElementsByTagName('p')[1];
+  console.log(displayedScore)
+  displayedScore.textContent = totalPoints;
+}
 
 thermometer.appendChild(displayedScore);
+
 
 }
 
