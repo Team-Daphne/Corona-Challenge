@@ -294,7 +294,26 @@ function registerAnswer(){
   }
 
   totalPoints += checkedButtonValue;
+  console.log(checkedButtonValue);
 }
+
+//implemnt for loop
+//need to increment by pixels by movement on the screen
+//how to make a animated progeress bar in java script
+function renderTotalScore(){
+
+var thermometer = document.getElementById('displayed-score');
+
+var displayedScore = document.createElement('p');
+
+displayedScore.textContent = totalPoints;
+
+thermometer.appendChild(displayedScore);
+
+}
+
+
+
 
 //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
 
@@ -326,8 +345,9 @@ function handleClickSeeResults() {
 function handleSubmitAnswer(event){
   event.preventDefault();
   //insert function to check answer
-  registerAnswer();
   renderCorrectAnswer();
+  registerAnswer();
+  renderTotalScore();
 
 }
 

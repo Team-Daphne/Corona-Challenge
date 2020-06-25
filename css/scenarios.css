@@ -66,6 +66,16 @@ section > button {
     background-color: #3e405b;
     border-radius: 5px;
 }
+article{
+    background-color: red;
+    border: solid red;
+    float: right;
+    width: 100px;
+    margin-left: 166px;
+    /* float: right; */
+    /* width: 100px; */
+  }
+  
 
 
 
