@@ -25,7 +25,6 @@ var profileFromStorage = JSON.parse(getProfileFromStorage);
 function renderResultsToPage(){
   var showTotalPoints = document.getElementById('point-results');
   var pointsTotal = document.createElement('p');
-  // pointsTotal.textContent = 'Your score was: ' + totalPoints;
   pointsTotal.textContent = 'Your score was: ' + finalPointsFromStorage;
   showTotalPoints.appendChild(pointsTotal);
 }
@@ -33,7 +32,7 @@ function renderResultsToPage(){
 //==========================Render Game Links to Page=================================
 function renderGameLinksToPage(){
 
-  if(totalPoints <= 5 ){
+  if(finalPointsFromStorage <= 5 ){
     var scoreMessage1 = document.getElementById('game-rec');
     var messageContent1 = document.createElement('p');
     messageContent1.textContent= 'Great job! You clearly know your stuff, but it\'s always good to learn more. Here is an article that might interest you.';
@@ -48,7 +47,7 @@ function renderGameLinksToPage(){
     gamelistContent1.target = '_blank',
     gameList1.appendChild(gamelistContent1);
   }
-  if(totalPoints > 5 && totalPoints < 11){
+  if(finalPointsFromStorage > 5 && finalPointsFromStorage < 11){
     var scoreMessage2 = document.getElementById('game-rec');
     var messageContent2 = document.createElement('p');
     messageContent2.textContent= 'Not bad! But you might do better if you read these articles';
@@ -71,7 +70,7 @@ function renderGameLinksToPage(){
     gamelistContent3.target = '_blank',
     gameList3.appendChild(gamelistContent3);
   }
-  if(totalPoints > 10 ){
+  if(finalPointsFromStorage > 10 ){
     var scoreMessage3 = document.getElementById('game-rec');
     var messageContent3 = document.createElement('p');
     messageContent3.textContent= 'Hmm, didn\'t do so hot.  But read these articles and you\'ll do better next time!';
@@ -132,9 +131,9 @@ function renderInputLinksToPage(){
   if(profileFromStorage.protests === true){
     var linksList1 = document.getElementById('user-choice1');
     var listContent1 = document.createElement('a');
-    var choicesLink1 = document.createTextNode(gatheringLink.text);
+    var choicesLink1 = document.createTextNode(protestLinks[0].text);
     listContent1.appendChild(choicesLink1);
-    listContent1.href = gatheringLink.link;//can make this access array of links when done
+    listContent1.href = protestLinks[0].link;//can make this access array of links when done
     listContent1.target = '_blank',
     linksList1.appendChild(listContent1);
   //figured out how to link from js at https://www.geeksforgeeks.org/how-to-create-a-link-in-javascript/ and how to make it open in a new tab at https://www.thesitewizard.com/html-tutorial/open-links-in-new-window-or-tab.shtml#:~:text=How%20to%20Open%20Hyperlinks%20in,your%20links%20(anchor%20tags).&text=Now%20when%20your%20visitors%20click,how%20they%20configured%20that%20browser).
@@ -142,18 +141,18 @@ function renderInputLinksToPage(){
   if(profileFromStorage.travel === true){
     var linksList2 = document.getElementById('user-choice2');
     var listContent2 = document.createElement('a');
-    var choicesLink2 = document.createTextNode(gatheringLink.text);
+    var choicesLink2 = document.createTextNode(diningLinks[0].text);
     listContent2.appendChild(choicesLink2);
-    listContent2.href = gatheringLink.link;//can make this access array of links when done
+    listContent2.href = diningLinks[0].link;//can make this access array of links when done
     listContent2.target = '_blank',
     linksList2.appendChild(listContent2);
   }
   if(profileFromStorage.diningOut === true){
     var linksList3 = document.getElementById('user-choice3');
     var listContent3 = document.createElement('a');
-    var choicesLink3 = document.createTextNode(gatheringLink.text);
+    var choicesLink3 = document.createTextNode(travelLinks[0].text);
     listContent3.appendChild(choicesLink3);
-    listContent3.href = gatheringLink.link;//can make this access array of links when done
+    listContent3.href = travelLinks[0].link;//can make this access array of links when done
     listContent3.target = '_blank',
     linksList3.appendChild(listContent3);
   }
@@ -169,17 +168,17 @@ function renderAgeLinksToPage(){
   if(profileFromStorage.age > '59'){
     var ageList = document.getElementById('user-age1');
     var agelistContent = document.createElement('a');
-    var ageLink = document.createTextNode(handwashingLink.text);
+    var ageLink = document.createTextNode('How to Protect Yourself & Others'  );
     agelistContent.appendChild(ageLink);
-    agelistContent.href = handwashingLink.link;
+    agelistContent.href = 'https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html';
     agelistContent.target = '_blank',
     ageList.appendChild(agelistContent);
   } else{
     var ageList1 = document.getElementById('user-age1');
     var agelistContent1 = document.createElement('a');
-    var ageLink1 = document.createTextNode(handwashingLink.text);
+    var ageLink1 = document.createTextNode('How COVID-19 Spreads');
     agelistContent1.appendChild(ageLink1);
-    agelistContent1.href = handwashingLink.link;
+    agelistContent1.href = 'https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/how-covid-spreads.html';
     agelistContent1.target = '_blank',
     ageList1.appendChild(agelistContent1);
   }
