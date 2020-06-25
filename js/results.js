@@ -23,29 +23,46 @@ var profileFromStorage = JSON.parse(getProfileFromStorage);
 
 //==========================Render Results to Page==========================
 function renderResultsToPage(){
-  var showTotalPoints = document.getElementById('point-results');
-  var pointsTotal = document.createElement('p');
-  pointsTotal.textContent = 'Your score was: ' + finalPointsFromStorage;
-  showTotalPoints.appendChild(pointsTotal);
+  if(finalPointsFromStorage === null){
+
+    var showTotalPoints = document.getElementById('point-results');
+    var pointsTotal = document.createElement('p');
+    pointsTotal.textContent = 'Here are some links you might find helpful!';
+    showTotalPoints.appendChild(pointsTotal);
+  }else{
+    var showTotalPoints = document.getElementById('point-results');
+    var pointsTotal = document.createElement('h4');
+    pointsTotal.textContent = 'Your score was: ' + finalPointsFromStorage;
+    showTotalPoints.appendChild(pointsTotal);
+  }
 }
 
 //==========================Render Game Links to Page=================================
 function renderGameLinksToPage(){
 
   if(finalPointsFromStorage <= 5 ){
-    var scoreMessage1 = document.getElementById('game-rec');
-    var messageContent1 = document.createElement('p');
-    messageContent1.textContent= 'Great job! You clearly know your stuff, but it\'s always good to learn more. Here is an article that might interest you.';
-    scoreMessage1.appendChild(messageContent1);
-
+    if(finalPointsFromStorage !== null){
+      var scoreMessage1 = document.getElementById('game-rec');
+      var messageContent1 = document.createElement('p');
+      messageContent1.textContent= 'Great job! You clearly know your stuff, but it\'s always good to learn more. Here are some articles that might interest you.';
+      scoreMessage1.appendChild(messageContent1);
+    }
 
     var gameList1 = document.getElementById('game-rec1');
     var gamelistContent1 = document.createElement('a');
-    var scoreLink1 = document.createTextNode(handwashingLink.text);
+    var scoreLink1 = document.createTextNode(goodScoreLinks[0].text);
     gamelistContent1.appendChild(scoreLink1);
-    gamelistContent1.href = handwashingLink.link;
+    gamelistContent1.href = goodScoreLinks[0].link;
     gamelistContent1.target = '_blank',
     gameList1.appendChild(gamelistContent1);
+
+    var gameList3 = document.getElementById('game-rec2');
+    var gamelistContent3 = document.createElement('a');
+    var scoreLink3 = document.createTextNode(goodScoreLinks[1].text);
+    gamelistContent3.appendChild(scoreLink3);
+    gamelistContent3.href = goodScoreLinks[1].link;
+    gamelistContent3.target = '_blank',
+    gameList3.appendChild(gamelistContent3);
   }
   if(finalPointsFromStorage > 5 && finalPointsFromStorage < 11){
     var scoreMessage2 = document.getElementById('game-rec');
@@ -56,77 +73,94 @@ function renderGameLinksToPage(){
 
     var gameList2 = document.getElementById('game-rec1');
     var gamelistContent2 = document.createElement('a');
-    var scoreLink2 = document.createTextNode(handwashingLink.text);
+    var scoreLink2 = document.createTextNode(goodScoreLinks[2].text);
     gamelistContent2.appendChild(scoreLink2);
-    gamelistContent2.href = handwashingLink.link;
+    gamelistContent2.href = goodScoreLinks[2].link;
     gamelistContent2.target = '_blank',
     gameList2.appendChild(gamelistContent2);
 
     var gameList3 = document.getElementById('game-rec2');
     var gamelistContent3 = document.createElement('a');
-    var scoreLink3 = document.createTextNode(handwashingLink.text);
+    var scoreLink3 = document.createTextNode(badScoreLinks[0].text);
     gamelistContent3.appendChild(scoreLink3);
-    gamelistContent3.href = handwashingLink.link;
+    gamelistContent3.href = badScoreLinks[0].link;
     gamelistContent3.target = '_blank',
     gameList3.appendChild(gamelistContent3);
+
+    var gameList6 = document.getElementById('game-rec3');
+    var gamelistContent6 = document.createElement('a');
+    var scoreLink6 = document.createTextNode(badScoreLinks[1].text);
+    gamelistContent6.appendChild(scoreLink6);
+    gamelistContent6.href = badScoreLinks[1].link;
+    gamelistContent6.target = '_blank',
+    gameList6.appendChild(gamelistContent6);
   }
   if(finalPointsFromStorage > 10 ){
     var scoreMessage3 = document.getElementById('game-rec');
     var messageContent3 = document.createElement('p');
-    messageContent3.textContent= 'Hmm, didn\'t do so hot.  But read these articles and you\'ll do better next time!';
+    messageContent3.textContent= 'Hmm, didn\'t do so hot.  But, if you read these articles, you\'ll do better next time!';
     scoreMessage3.appendChild(messageContent3);
 
 
     var gameList4 = document.getElementById('game-rec1');
     var gamelistContent4 = document.createElement('a');
-    var scoreLink4 = document.createTextNode(handwashingLink.text);
+    var scoreLink4 = document.createTextNode(goodScoreLinks[3].text);
     gamelistContent4.appendChild(scoreLink4);
-    gamelistContent4.href = handwashingLink.link;
+    gamelistContent4.href = goodScoreLinks[3].link;
     gamelistContent4.target = '_blank',
     gameList4.appendChild(gamelistContent4);
 
     var gameList5 = document.getElementById('game-rec2');
     var gamelistContent5 = document.createElement('a');
-    var scoreLink5 = document.createTextNode(handwashingLink.text);
+    var scoreLink5 = document.createTextNode(badScoreLinks[0].text);
     gamelistContent5.appendChild(scoreLink5);
-    gamelistContent5.href = handwashingLink.link;
+    gamelistContent5.href = badScoreLinks[0].link;
     gamelistContent5.target = '_blank',
     gameList5.appendChild(gamelistContent5);
 
     var gameList6 = document.getElementById('game-rec3');
     var gamelistContent6 = document.createElement('a');
-    var scoreLink6 = document.createTextNode(handwashingLink.text);
+    var scoreLink6 = document.createTextNode(badScoreLinks[1].text);
     gamelistContent6.appendChild(scoreLink6);
-    gamelistContent6.href = handwashingLink.link;
+    gamelistContent6.href = badScoreLinks[1].link;
     gamelistContent6.target = '_blank',
     gameList6.appendChild(gamelistContent6);
+
+    var gameList7 = document.getElementById('game-rec4');
+    var gamelistContent7 = document.createElement('a');
+    var scoreLink7 = document.createTextNode(badScoreLinks[2].text);
+    gamelistContent7.appendChild(scoreLink7);
+    gamelistContent7.href = badScoreLinks[2].link;
+    gamelistContent7.target = '_blank',
+    gameList7.appendChild(gamelistContent7);
   }
 }
 //==========================Render Input Links to Page=================================
 
 function renderInputLinksToPage(){
-
-  if(profileFromStorage.protests === false &&
+  if(finalPointsFromStorage !== null){
+    if(profileFromStorage.protests === false &&
     profileFromStorage.travel === false &&
     profileFromStorage.diningOut === false){
 
-    var choiceMessage1 = document.getElementById('user-choice');
-    var choiceMessageContent1 = document.createElement('p');
-    choiceMessageContent1.textContent= 'You didn\' show interest in any of the topics on our form, but you might enjoy reading this article.';
-    choiceMessage1.appendChild(choiceMessageContent1);
+      var choiceMessage1 = document.getElementById('user-choice');
+      var choiceMessageContent1 = document.createElement('p');
+      choiceMessageContent1.textContent= 'You didn\' show interest in any of the topics on our form, but you might enjoy reading this article.';
+      choiceMessage1.appendChild(choiceMessageContent1);
 
-    var linksList = document.getElementById('user-choice1');
-    var listContent = document.createElement('a');
-    var choicesLink = document.createTextNode(gatheringLink.text);
-    listContent.appendChild(choicesLink);
-    listContent.href = gatheringLink.link;//can make this access array of links when done
-    listContent.target = '_blank',
-    linksList.appendChild(listContent);
-  }else{
-    var choiceMessage = document.getElementById('user-choice');
-    var choiceMessageContent = document.createElement('p');
-    choiceMessageContent.textContent= 'Based on your input on the form, you might enjoy these articles.';
-    choiceMessage.appendChild(choiceMessageContent);
+      var linksList = document.getElementById('user-choice1');
+      var listContent = document.createElement('a');
+      var choicesLink = document.createTextNode('Show Me the Science - Why Wash Your Hands?');
+      listContent.appendChild(choicesLink);
+      listContent.href = 'https://www.cdc.gov/handwashing/why-handwashing.html';//can make this access array of links when done
+      listContent.target = '_blank',
+      linksList.appendChild(listContent);
+    }else{
+      var choiceMessage = document.getElementById('user-choice');
+      var choiceMessageContent = document.createElement('p');
+      choiceMessageContent.textContent= 'Based on your input on the form, you might enjoy these articles.';
+      choiceMessage.appendChild(choiceMessageContent);
+    }
   }
   if(profileFromStorage.protests === true){
     var linksList1 = document.getElementById('user-choice1');
@@ -160,25 +194,26 @@ function renderInputLinksToPage(){
 //=======================Render Age Links to Page===================================
 function renderAgeLinksToPage(){
 
-  var ageMessage = document.getElementById('user-age');
-  var ageMessageContent = document.createElement('p');
-  ageMessageContent.textContent= 'Based on your age, you might find this article enlightening.';
-  ageMessage.appendChild(ageMessageContent);
-
+  if(finalPointsFromStorage !== null){
+    var ageMessage = document.getElementById('user-age');
+    var ageMessageContent = document.createElement('p');
+    ageMessageContent.textContent= 'Based on your age, you might find this article enlightening.';
+    ageMessage.appendChild(ageMessageContent);
+  }
   if(profileFromStorage.age > '59'){
     var ageList = document.getElementById('user-age1');
     var agelistContent = document.createElement('a');
-    var ageLink = document.createTextNode('How to Protect Yourself & Others'  );
+    var ageLink = document.createTextNode('Risk for Severe Illness Increases with Age');
     agelistContent.appendChild(ageLink);
-    agelistContent.href = 'https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html';
+    agelistContent.href = 'https://www.cdc.gov/coronavirus/2019-ncov/need-extra-precautions/older-adults.html';
     agelistContent.target = '_blank',
     ageList.appendChild(agelistContent);
   } else{
     var ageList1 = document.getElementById('user-age1');
     var agelistContent1 = document.createElement('a');
-    var ageLink1 = document.createTextNode('How COVID-19 Spreads');
+    var ageLink1 = document.createTextNode('People of Any Age with Underlying Medical Conditions');
     agelistContent1.appendChild(ageLink1);
-    agelistContent1.href = 'https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/how-covid-spreads.html';
+    agelistContent1.href = 'https://www.cdc.gov/coronavirus/2019-ncov/need-extra-precautions/people-with-medical-conditions.html';
     agelistContent1.target = '_blank',
     ageList1.appendChild(agelistContent1);
   }
