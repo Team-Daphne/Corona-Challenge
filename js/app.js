@@ -12,12 +12,12 @@ var totalPoints = 0;
 //a
 
 
-var goodScoreLinks = [];
-var badScoreLinks = handwashingLink;
+var goodScoreLinks = [reopenLink, essentialErrandsLink, goOutLink];
+var badScoreLinks = [handwashingLink, feelingSick, sixFeetLink];
 
 var protestLinks = gatheringLink;
-var diningLinks = [];
-var travelLinks = [];
+var diningLinks = diningOutLink;
+var travelLinks = travelLink;
 
 //====================== Constructor Function =======================================
 function Scenario(img, question, answerOptions, pointValue, finalAnswerKey, finalAnswer){
@@ -70,7 +70,25 @@ var groceries = new Scenario(
   ['If online grocery delivery isn’t an option, wear your face mask and practice diligent social distancing at the store. Use hand sanitizer when done, wash your hands when you return home.', 'Grab your face mask and all your reusable bags from home, and head to the grocery store.', 'Don’t worry about the face mask, some stores don’t require it.', 'Head to the grocery store, business as usual! Nothing to worry about, we all wash our fruit and vegetables anyway.'],
   [0, 1, 2, 3],
   ['0 pt: If online grocery delivery isn’t an option, wear your face mask and practice diligent social distancing at the store. Use hand sanitizer when done, wash your hands when you return home.', '1 pt: Grab your face mask and all your reusable bags from home, and head to the grocery store.', '2 pt: Don’t worry about the face mask, some stores don’t require it.', '3 pt: Head to the grocery store, business as usual! Nothing to worry about, we all wash our fruit and vegetables anyway.'],
-  'From the CDC: “Recent studies indicate that a significant portion of individuals with coronavirus lack symptoms (“asymptomatic”) and that even those who eventually develop symptoms (“pre-symptomatic”) can transmit the virus to others before showing symptoms.  This means that the virus can spread between people interacting in close proximity—for example, speaking, coughing, or sneezing—even if those people are not exhibiting symptoms.  In light of this new evidence, CDC recommends wearing cloth face coverings in public settings where other social distancing measures are difficult to maintain (e.g., grocery stores and pharmacies) especially in areas of significant community-based transmission.”'
+  'From the CDC: “Recent studies indicate that a significant portion of individuals with coronavirus lack symptoms (“asymptomatic”) and that even those who eventually develop symptoms (“pre-symptomatic”) can transmit the virus to others before showing symptoms.” Please wear a mask when you\'re out and about!'
+);
+
+var hiking = new Scenario(
+  'images/hiking.jpeg',
+  'The state is starting to reopen, so you’re out hiking and realize you’re on an overcrowded trail. You know you need to maintain social distance, how should you handle this?',
+  ['The state is starting to reopen, so you’re out hiking and realize you’re on an overcrowded trail. You know you need to maintain social distance, how should you handle this?', 'Leave and find another trail that’s not as crowded.', 'Keep a distance of at least 6 feet between you and other hikers.', 'Hold out your arms… your arm length is a big enough distance.', 'Don’t worry - as long as you’re wearing a mask, it doesn’t matter.'],
+  [0, 1, 2, 3],
+  ['0 pt: Leave and find another trail that’s not as crowded.', '1 pt: Keep a distance of at least 6 feet between you and other hikers', '2 pt: Hold out your arms …your arm length is a big enough distance.', '3 pt: Don’t worry - as long as you’re wearing a mask, it doesn’t matter.'],
+  'Do your research! Head for less popular trails, and have a few back-ups in mind in case your first choice is crowded. If you’re encounter other hikers, try to maintain a distance of 6 feet between you and any other hikers (that’s about the width of an average sedan). You should definitely bring hand sanitizer and your face mask, but maintaining distance is the best line of defense.'
+);
+
+var feelingSick = new Scenario(
+  'images/sick.png',
+  'You’ve followed all the recommendations, but are starting to feel a bit sick. What is your best course of action?',
+  ['If you have any emergency warning signs, seek medical help immediately. Otherwise, stay home, keep track of your symptoms and contact your healthcare provider.', 'Wear your face mask and go to your neighborhood pharmacy for over-the-counter relief of mild symptoms.', 'Stay home and tough it out; it probably isn’t anything to worry about.', 'Take the bus to the hospital immediately, no time to grab your face mask.'],
+  [0, 1, 2, 3],
+  ['0 pt: If you have any emergency warning signs, seek medical help immediately. Otherwise, stay home, keep track of your symptoms and contact your healthcare provider.', '1 pt: Wear your face mask and go to your neighborhood pharmacy for over-the-counter relief of mild symptoms.', '2 pt: Stay home and tough it out; it probably isn’t anything to worry about.', '3 pt: Take the bus to the hospital immediately, no time to grab your face mask.'],
+  'Most people who experience mild illness are able to recover from home, but it’s wise to contact your health care provider if you believe you’ve been exposed to COVID-19. It’s also critical to minimize the risk of transmission to your community, so if you need to leave your house for medical treatment or other critical reasons, you should take every precaution. This includes wearing a face covering and maintaining social distance.'
 );
 
 //====================== link objects =======================================
@@ -83,6 +101,47 @@ var gatheringLink = new OutsideLinks(
 var handwashingLink = new OutsideLinks(
   'CDC recommendations for handwashing',
   'https://www.cdc.gov/handwashing/when-how-handwashing.html'
+);
+
+var hikingLink = new OutsideLinks(
+  'WTA: Hiking in the Time of Coronavirus',
+  'https://www.wta.org/go-outside/social-distancing-hiking-in-the-time-of-coronavirus'
+);
+
+var ifSickLink = new OutsideLinks(
+  'CDC: What to Do If You Are Sick',
+  'https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html'
+);
+
+var essentialErrandsLink = new OutsideLinks(
+  'CDC: Running Essential Errands',
+  'https://www.cdc.gov/coronavirus/2019-ncov/daily-life-coping/essential-goods-services.html'
+);
+
+var sixFeetLink = new OutsideLinks(
+  'CNN: Social distancing means standing 6 feet apart',
+  'https://www.cnn.com/2020/03/24/health/six-feet-social-distance-explainer-coronavirus-wellness/index.html'
+);
+
+var goOutLink = new OutsideLinks(
+  'CNN: Deciding to Go Out',
+  'https://www.cdc.gov/coronavirus/2019-ncov/daily-life-coping/deciding-to-go-out.html'
+
+);
+
+var reopenLink = new OutsideLinks(
+  'How We Reopen Safely',
+  'https://www.covidexitstrategy.org/'
+);
+
+var diningOutLink = new OutsideLinks(
+  'CDC: Considerations for Restaurants and Bars',
+  'https://www.cdc.gov/coronavirus/2019-ncov/community/organizations/business-employers/bars-restaurants.html'
+);
+
+var travelLink = new OutsideLinks(
+  'CDC: Considerations for Travelers',
+  'https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-in-the-us.html'
 );
 
 //====================== Functions =======================================
