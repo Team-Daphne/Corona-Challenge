@@ -8,9 +8,8 @@ var indexNumber = 0;
 
 var pointsEarned = [];
 var totalPoints = 0;
+var finalPointTotal; //to hold tally before going to results page
 // var totalPoints = arrSum(pointsEarned);
-//a
-
 
 var goodScoreLinks = [reopenLink, essentialErrandsLink, goOutLink];
 var badScoreLinks = [handwashingLink, feelingSick, sixFeetLink];
@@ -126,7 +125,6 @@ var sixFeetLink = new OutsideLinks(
 var goOutLink = new OutsideLinks(
   'CNN: Deciding to Go Out',
   'https://www.cdc.gov/coronavirus/2019-ncov/daily-life-coping/deciding-to-go-out.html'
-
 );
 
 var reopenLink = new OutsideLinks(
@@ -153,11 +151,11 @@ function makeSubmitButton() {
   submitButton.style.height = '40px';
   submitButton.style.marginTop = '50px';
   submitButton.style.fontSize = '18pt';
-  submitButton.textContent = 'submit';
+  submitButton.textContent = 'Submit';
   answerChoiceContainer.appendChild(submitButton);
 }
 
-//happens upon page load and anytime they click next question!!
+//happens upon page load and anytime they click next question
 function renderScenarioToPage(){
   //hide the other thing here
   document.getElementById('answer-key').style.display = 'none';
@@ -203,16 +201,7 @@ function renderScenarioToPage(){
   answerChoice = document.getElementById('label3');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[3];
 
-
-
-
   //referenced this webpage to discover how to set backgroundImage via JavaScript: https://code.likeagirl.io/js-set-a-background-using-code-1cc26cf96ce4// and https://www.w3schools.com/jsref/prop_style_background.asp
-
-  // can use first one to target body, or use second (commented out) to target div, then style/size div in CSS; CH note - second option seems to work better leaving first in for temp. reference
-
-  // document.body.style.background = 'url('+ allScenarios[indexNumber].img +')';
-  // document.body.style.backgroundRepeat = 'repeat-y';
-  // document.body.style.backgroundSize = '700px';
 
   document.getElementById('background-image-div').style.backgroundImage = 'url('+ allScenarios[indexNumber].img +')';
   document.getElementById('background-image-div').style.backgroundRepeat = 'repeat-y';
@@ -276,12 +265,18 @@ function renderCorrectAnswer(){
     makeNextButton();
   } else {
     makeSeeResultsButton();
+    putFinalScoreInStorage();
   }
 }
 
+//put totalPoints in local storage for retrieval in results.js
+function putFinalScoreInStorage() {
+  finalPointTotal = totalPoints;
+  var finalPointTotalStringified = JSON.stringify(finalPointTotal);
+  localStorage.setItem('storedPoints', finalPointTotalStringified);
+}
 
 
-//when we click submit on the last question, we DON"T want renderScenarioToPage, we want new function that shows "get results button"
 
 //=================== Getting value from radio buttons =================
 
@@ -292,21 +287,17 @@ function renderCorrectAnswer(){
 function registerAnswer(){
   var radioButtons = document.getElementsByName('answer-choice');
   for (var i = 0; i < radioButtons.length; i++){
-  
+
     if (radioButtons[i].checked)
       var checkedButtonValue = parseInt(radioButtons[i].value);
-      console.log()
-      
-  
-    }
-    
-    totalPoints += checkedButtonValue;
- 
   }
-  //reduced
-  //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
-  
-  // var totalPoints = arrSum(pointsEarned);
+
+  totalPoints += checkedButtonValue;
+}
+//reduced
+//https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
+
+// var totalPoints = arrSum(pointsEarned);
 
 
 

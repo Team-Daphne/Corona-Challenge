@@ -19,13 +19,14 @@
 // debugger;
 
 // TODO:********** create an object or object contructor for userProfile
-
+var finalPointsFromStorage;
 
 //==========================Render Results to Page==========================
 function renderResultsToPage(){
   var showTotalPoints = document.getElementById('point-results');
   var pointsTotal = document.createElement('p');
-  pointsTotal.textContent = 'Your score was: ' + totalPoints;
+  // pointsTotal.textContent = 'Your score was: ' + totalPoints;
+  pointsTotal.textContent = 'Your score was: ' + finalPointsFromStorage;
   showTotalPoints.appendChild(pointsTotal);
 }
 
@@ -58,7 +59,13 @@ function renderGameLinksToPage(){
   linksList.appendChild(listContent);
 }
 
-
+//build a function to retrieve localstorage of points, put it in to a variable, and then clear local storage
+function retrieveFinalScoreFromStorage (){
+  var getFinalPointsFromStorage = localStorage.getItem('storedPoints');
+  finalPointsFromStorage = JSON.parse(getFinalPointsFromStorage);
+  localStorage.removeItem('storedPoints');
+}
+retrieveFinalScoreFromStorage();
 
 
 
