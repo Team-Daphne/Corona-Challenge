@@ -225,21 +225,17 @@ function renderCorrectAnswer(){
 function registerAnswer(){
   var radioButtons = document.getElementsByName('answer-choice');
   for (var i = 0; i < radioButtons.length; i++){
-  
+
     if (radioButtons[i].checked)
       var checkedButtonValue = parseInt(radioButtons[i].value);
-      console.log()
-      
-  
-    }
-    
-    totalPoints += checkedButtonValue;
- 
   }
-  //reduced
-  //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
-  
-  // var totalPoints = arrSum(pointsEarned);
+
+  totalPoints += checkedButtonValue;
+}
+
+//https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
+
+// var totalPoints = arrSum(pointsEarned);
 
 
 
