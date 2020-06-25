@@ -19,12 +19,9 @@ header{
 }
 
 .header h1{
-  /* border: solid 1px black; */
-  /* did some funny stuff below to get things to sit right, put borders back on to see how things are situated */
   width: 80%;
   margin-left: 80px;
   position: relative;
-
   color: #3e405b;
   font-family: 'Fredoka One', cursive;
   font-size: 40px;
@@ -36,6 +33,7 @@ header{
   padding-bottom: 5px;
 }
 
+
 a{
   color: #3e405b;
   text-decoration: none;
@@ -45,6 +43,20 @@ a{
 
 a:hover{
   font-size: 16px;
+}
+
+#start-challenge{
+  background-color: #3e405b;
+  border-radius: 7px;
+  display: none;
+  float: right;
+}
+
+#start-challenge > a{
+  font-size: 15px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  color: #e9d5b6;
 }
 
 main{
@@ -84,16 +96,28 @@ input{
   display: block;
 }
 
+
+/* below styles the make challenge button that pops up */
+section > button {
+  float: right;
+  margin-right: 40px;
+  font-family: 'Roboto', sans-serif;
+  color: #ecd0a5;
+  background-color: #3e405b;
+  border-radius: 5px;
+}
+
 footer{
   width: 90%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
+  margin-bottom: 10px;
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
 }
 
-/* about-developers specific stuff */
+/* ============================== ABOUT PAGE */
 
 /* #about-main{
   height: 1000px;
@@ -102,20 +126,22 @@ footer{
 h3{
   color: #3e405b;
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bolder;
+  margin-bottom: 10px;
 }
 
-.face{
-  border: double 2px #3e405b;
+/* .face{
   border-radius: 100%;
-  height: 60px;
-  width: 60px;
-}
+} */
 
 .bio img{
-  float: left;
+  /* float: left; */
   margin-right: 15px;
+  border: double 6px #3e405b;
+  border-radius: 100%;
+  height: 200px;
+  width: 200px;
 }
 
 .bio section{
@@ -124,6 +150,7 @@ h3{
 
 li{
   margin: 10px;
+  /* background-color: lightblue; */
 }
 
 

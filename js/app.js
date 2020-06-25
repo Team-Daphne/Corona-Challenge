@@ -14,6 +14,7 @@ var finalPointTotal; //to hold tally before going to results page
 var goodScoreLinks = [reopenLink, essentialErrandsLink, goOutLink];
 var badScoreLinks = [handwashingLink, feelingSick, sixFeetLink];
 
+
 var protestLinks = gatheringLink;
 var diningLinks = diningOutLink;
 var travelLinks = travelLink;
@@ -294,7 +295,7 @@ function registerAnswer(){
 
   totalPoints += checkedButtonValue;
 }
-//reduced
+
 //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
 
 // var totalPoints = arrSum(pointsEarned);
