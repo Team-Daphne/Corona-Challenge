@@ -11,13 +11,6 @@ var totalPoints = 0;
 var finalPointTotal; //to hold tally before going to results page
 // var totalPoints = arrSum(pointsEarned);
 
-var goodScoreLinks = [reopenLink, essentialErrandsLink, goOutLink];
-var badScoreLinks = [handwashingLink, feelingSick, sixFeetLink];
-
-
-var protestLinks = gatheringLink;
-var diningLinks = diningOutLink;
-var travelLinks = travelLink;
 
 //====================== Constructor Function =======================================
 function Scenario(img, question, answerOptions, pointValue, finalAnswerKey, finalAnswer){
@@ -143,6 +136,14 @@ var travelLink = new OutsideLinks(
   'https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-in-the-us.html'
 );
 
+//============================Link Arrays================================
+var goodScoreLinks = [reopenLink, essentialErrandsLink, goOutLink, hikingLink];
+var badScoreLinks = [handwashingLink, ifSickLink, sixFeetLink];
+
+
+var protestLinks = [gatheringLink];
+var diningLinks = [diningOutLink];
+var travelLinks = [travelLink];
 //====================== Functions =======================================
 function makeSubmitButton() {
   var answerChoiceContainer = document.getElementById('answer-container');
@@ -158,15 +159,13 @@ function makeSubmitButton() {
 
 //happens upon page load and anytime they click next question
 function renderScenarioToPage(){
-  //hide the other thing here
   document.getElementById('answer-key').style.display = 'none';
   document.getElementById('final-answer-section').style.display = 'none';
 
 
-  //if statement... if this greater then first iteration (index is > 0) then
+  //if statement... if this greater than first iteration (index is > 0) then
   if (indexNumber > 0){
     var answerKeyContainer = document.getElementById('answer-key');
-    // answerKeyContainer.removeChild(answerKeyContainer.firstChild);
     answerKeyContainer.innerHTML= '';
     var finalAnswerSection = document.getElementById('final-answer-section');
     finalAnswerSection.removeChild(finalAnswerSection.firstChild);
@@ -233,6 +232,8 @@ function makeSeeResultsButton() {
   seeResultsButton.style.height = '40px';
   seeResultsButton.style.marginTop = '50px';
   seeResultsButton.style.fontSize = '18pt';
+  seeResultsButton.style.float = 'right';
+  seeResultsButton.style.marginRight = '40px';
   seeResultsButton.textContent = 'See results!';
   seeResultsButtonHolder.appendChild(seeResultsButton);
 }
@@ -276,8 +277,6 @@ function putFinalScoreInStorage() {
   var finalPointTotalStringified = JSON.stringify(finalPointTotal);
   localStorage.setItem('storedPoints', finalPointTotalStringified);
 }
-
-
 
 //=================== Getting value from radio buttons =================
 
@@ -349,14 +348,21 @@ function handleClickSeeResults() {
 
 function handleSubmitAnswer(event){
   event.preventDefault();
-  //insert function to check answer
-  renderCorrectAnswer();
-  registerAnswer();
+
   renderTotalScore();
+  registerAnswer();
+  renderCorrectAnswer();
+  clearRadioButtons();
 
 }
 
-
+//https://stackoverflow.com/questions/2554116/how-to-clear-radio-button-in-javascript
+function clearRadioButtons(){
+  document.getElementById('radio0').checked = false;
+  document.getElementById('radio1').checked = false;
+  document.getElementById('radio2').checked = false;
+  document.getElementById('radio3').checked = false;
+}
 
 
 // //handleSeeMyResults will transfer points to the result page
@@ -369,4 +375,4 @@ function handleSubmitAnswer(event){
 
 // }
 
-
+document.get
