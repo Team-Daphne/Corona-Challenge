@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,34 +11,47 @@
 
 
 <body>
-  
-  <section id="scenario-container">
-    <!-- this is where the scenario question will render by creating the p element  -->
-  </section>
+  <div id="background-image-div">
+    <section id="scenario-container">
+      <!-- this is where the scenario question will render by creating the p element  -->
+    </section>
 
-  <section >
     
     <form id="answer-container">
-      
+      <p id="the-question"></p>
       <!-- <label for="answer-choice">Please choose one:</label> -->
-        <!-- <input type="radio" name="answer-choice" value="1">1
-        <input type="radio" name="answer-choice" value="2">2
-        <input type="radio" name="answer-choice" value="3">3
-        <input type="radio" name="answer-choice" value="4">4 -->
-
-        <br>
-
-        <button>Submit</button>
-
-        <!-- we will want a button here that we can hide until they finish the last question -->
-        
+      <input id="point0" type="radio" name="answer-choice" value='0' required>
+      <label id="label0" for="answer-choice"></label>
+      <br>
+      <input id="pointid" type="radio" name="answer-choice" value='1' required>
+      <label id="label1" for="answer-choice"></label>
+      <br>
+      <input id="pointid" type="radio" name="answer-choice" value='2' required>
+      <label id="label2" for="answer-choice"></label>
+      <br>
+      <input id="pointid" type="radio" name="answer-choice" value='3' required>
+      <label id="label3" for="answer-choice"></label>
+      <br>
+      
+      <!-- we will want a button here that we can hide until they finish the last question -->
+      
+      <!-- <button>Submit</button> -->
     </form>
-  </section>
-
+    
+    <ul id = "answer-key">
+    </ul>
+    <section id="final-answer-section"></section>
+    <section id="next-button-holder"></section>
+    <section id="get-results-button-holder"></section>
+  </div>
   <!-- STRETCH GOAL -->
   <!-- <aside>for thermometer counter or point score</aside> -->
 
   <script src="js/app.js"></script>
+  <!-- <script src="js/results.js"></script> -->
+  <script src="js/scenario.js"></script>
+
 
 </body>
+
 </html>

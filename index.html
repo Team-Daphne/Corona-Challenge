@@ -6,12 +6,13 @@
     <title>Coronavirus Challenge</title>
     <link href="css/reset.css" type="text/css" rel="stylesheet">
     <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <img id="logo">
-        <h1>Coronavirus Challenge (or other title)</h1>
+    <header class="header">
+        <img src="images/corona-outline.png" alt="virus image">
+        <h1>Coronavirus Challenge</h1>
         <nav>
             <a href="about.html">About the Developers</a>
         </nav>
@@ -26,7 +27,7 @@
             
             <form id="user-input">
                 <fieldset>
-                    <legend>Player Information</legend>
+                    <legend>User Profile</legend>
 
                         <label for="name">Name</label>
                         <input type="text" name="name" required>
@@ -39,7 +40,7 @@
                         <input type="checkbox" name="interest1" value="Protests"> Protests
                         <input type="checkbox" name="interest2" value="Travel"> Travel
                         <input type="checkbox" name="interest3" value="Dining-out"> Dining Out
-
+                        <br>
                      <button id="submit-user">Submit</button>
                 </fieldset>
             </form>
@@ -60,7 +61,8 @@
     <footer> &copy; 2020 Team Daphne </footer>
 
     <script src="js/app.js"></script>
-    <script src="js/results.js"></script>
+    <!-- <script src="js/results.js"></script> -->
+    <script src="js/index.js"></script>
 
 
 </body>
