@@ -193,6 +193,13 @@ function retrieveFinalScoreFromStorage (){
 }
 retrieveFinalScoreFromStorage();
 
+//====================Before unload event=======================
+//https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event
+window.addEventListener('beforeunload', ifUserLeaves);
+function ifUserLeaves(event){
+  // event.preventDefault();
+  event.returnValue = 'If you leave or refresh this page, your results and some links will be lost. Do you wish to leave?';
+}
 
 //============================Function Calls===========================
 renderResultsToPage();
