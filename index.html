@@ -7,6 +7,7 @@
     <link href="css/reset.css" type="text/css" rel="stylesheet">
     <link href="css/style.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.png" type="image/png"/>
 </head>
 
 <body>
@@ -39,12 +40,13 @@
                         <input type="number" name="age" required>
                         <!-- might change to dob input -->
 
-                        <label for="interest">Check boxes if you'd like more info</label>
-                        <input type="checkbox" name="interest1" value="Protests"> Protests
+                        <label for="interest">Please check the boxes below if you're interested in any of the following activities, and learning more about staying safe.</label>
+                        <input type="checkbox" name="interest1" value="Protests"> Participating in  Protests
                         <input type="checkbox" name="interest2" value="Travel"> Travel
                         <input type="checkbox" name="interest3" value="Dining-out"> Dining Out
                         <br>
                      <button id="submit-user">Submit</button>
+                     <button id="start-challenge"><a href="scenarios.html">Start challenge!</a></button>
                 </fieldset>
             </form>
         </section>
@@ -54,9 +56,10 @@
             <button>Reset profile</button>
         </div> -->
 
-        <section>
-            <!-- <button id="start-game">Start challenge</button> -->
-        </section>
+       
+        <section id="start-challenge-button-holder"></section>
+            
+
         <a href="scenarios.html">Scenario page</a>
         <a href="results.html">Result page</a>
     </main>
