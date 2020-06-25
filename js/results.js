@@ -13,15 +13,20 @@
 //we will need to access some of the things from app.js here
 // we're using the links constructor here to show results and links
 
+
+var finalPointsFromStorage;
+
 //==========================Grab data from local storage==================
 var getProfileFromStorage = localStorage.getItem('storedProfile');
 var profileFromStorage = JSON.parse(getProfileFromStorage);
+
 
 //==========================Render Results to Page==========================
 function renderResultsToPage(){
   var showTotalPoints = document.getElementById('point-results');
   var pointsTotal = document.createElement('p');
-  pointsTotal.textContent = 'Your score was: ' + totalPoints;
+  // pointsTotal.textContent = 'Your score was: ' + totalPoints;
+  pointsTotal.textContent = 'Your score was: ' + finalPointsFromStorage;
   showTotalPoints.appendChild(pointsTotal);
 }
 
@@ -180,7 +185,13 @@ function renderAgeLinksToPage(){
   }
 }
 
-
+//build a function to retrieve localstorage of points, put it in to a variable, and then clear local storage
+function retrieveFinalScoreFromStorage (){
+  var getFinalPointsFromStorage = localStorage.getItem('storedPoints');
+  finalPointsFromStorage = JSON.parse(getFinalPointsFromStorage);
+  localStorage.removeItem('storedPoints');
+}
+retrieveFinalScoreFromStorage();
 
 
 //============================Function Calls===========================

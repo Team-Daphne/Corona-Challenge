@@ -15,6 +15,7 @@
     width: 80%;
 }
 
+
 #scenario-container {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -23,7 +24,6 @@
     font-weight: bold;
     color: #2e3047;
     font-family: 'Roboto', sans-serif;
-
 }
 
 #answer-container, p {
