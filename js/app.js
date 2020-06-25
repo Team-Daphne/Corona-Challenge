@@ -33,6 +33,14 @@ function OutsideLinks(text, link){
   this.link = link;
   //this.category = category;
 }
+//=============================User Contructor======================
+function User(name, age, protests, travel, diningOut){
+  this.name = name;
+  this.age = age;
+  this.protests = protests;
+  this.travel = travel;
+  this.diningOut = diningOut;
+}
 
 //====================== Scenario Objects =======================================
 
@@ -254,9 +262,8 @@ function handleClickNextQuestion(event2){
 function handleClickSeeResults() {
   location.href = 'results.html';
 }
+// debugger;
 
-var checkButton = document.getElementById('answer-container');
-checkButton.addEventListener('submit', handleSubmitAnswer);
 
 function handleSubmitAnswer(event){
   event.preventDefault();
@@ -277,5 +284,3 @@ function handleSubmitAnswer(event){
 // }
 
 
-
-renderScenarioToPage();
