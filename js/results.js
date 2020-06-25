@@ -5,6 +5,7 @@
 
 //TODO:************ handle info from form submit
 //TODO:************ save user info to local storage
+// TODO:********** create an object or object contructor for userProfile
 
 //TODO: Stretch: landing page load signifies either new user or return user
 // there is logic in bus mall app re knowing if something is in local storage or not yet
@@ -12,14 +13,9 @@
 //we will need to access some of the things from app.js here
 // we're using the links constructor here to show results and links
 
+//==========================Grab data from local storage==================
 var getProfileFromStorage = localStorage.getItem('storedProfile');
 var profileFromStorage = JSON.parse(getProfileFromStorage);
-
-
-// debugger;
-
-// TODO:********** create an object or object contructor for userProfile
-
 
 //==========================Render Results to Page==========================
 function renderResultsToPage(){
@@ -129,7 +125,6 @@ function renderInputLinksToPage(){
     choiceMessage.appendChild(choiceMessageContent);
   }
   if(profileFromStorage.protests === true){
-
     var linksList1 = document.getElementById('user-choice1');
     var listContent1 = document.createElement('a');
     var choicesLink1 = document.createTextNode(gatheringLink.text);
@@ -140,7 +135,6 @@ function renderInputLinksToPage(){
   //figured out how to link from js at https://www.geeksforgeeks.org/how-to-create-a-link-in-javascript/ and how to make it open in a new tab at https://www.thesitewizard.com/html-tutorial/open-links-in-new-window-or-tab.shtml#:~:text=How%20to%20Open%20Hyperlinks%20in,your%20links%20(anchor%20tags).&text=Now%20when%20your%20visitors%20click,how%20they%20configured%20that%20browser).
   }
   if(profileFromStorage.travel === true){
-
     var linksList2 = document.getElementById('user-choice2');
     var listContent2 = document.createElement('a');
     var choicesLink2 = document.createTextNode(gatheringLink.text);
@@ -150,7 +144,6 @@ function renderInputLinksToPage(){
     linksList2.appendChild(listContent2);
   }
   if(profileFromStorage.diningOut === true){
-
     var linksList3 = document.getElementById('user-choice3');
     var listContent3 = document.createElement('a');
     var choicesLink3 = document.createTextNode(gatheringLink.text);
@@ -160,14 +153,15 @@ function renderInputLinksToPage(){
     linksList3.appendChild(listContent3);
   }
 }
+//=======================Render Age Links to Page===================================
 function renderAgeLinksToPage(){
+
+  var ageMessage = document.getElementById('user-age');
+  var ageMessageContent = document.createElement('p');
+  ageMessageContent.textContent= 'Based on your age, you might find this article enlightening.';
+  ageMessage.appendChild(ageMessageContent);
+
   if(profileFromStorage.age > '59'){
-    var ageMessage = document.getElementById('user-age');
-    var ageMessageContent = document.createElement('p');
-    ageMessageContent.textContent= 'Based on your age, you might find this article enlightening.';
-    ageMessage.appendChild(ageMessageContent);
-
-
     var ageList = document.getElementById('user-age1');
     var agelistContent = document.createElement('a');
     var ageLink = document.createTextNode(handwashingLink.text);
@@ -175,6 +169,14 @@ function renderAgeLinksToPage(){
     agelistContent.href = handwashingLink.link;
     agelistContent.target = '_blank',
     ageList.appendChild(agelistContent);
+  } else{
+    var ageList1 = document.getElementById('user-age1');
+    var agelistContent1 = document.createElement('a');
+    var ageLink1 = document.createTextNode(handwashingLink.text);
+    agelistContent1.appendChild(ageLink1);
+    agelistContent1.href = handwashingLink.link;
+    agelistContent1.target = '_blank',
+    ageList1.appendChild(agelistContent1);
   }
 }
 
