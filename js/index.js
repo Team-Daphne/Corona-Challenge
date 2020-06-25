@@ -28,6 +28,7 @@ function handleDataFromForm (event){
   var personalWelcome = document.createElement('p');
   personalWelcome.textContent = 'Welcome, ' + playerName + '! Are you ready to test your knowledge?';
 
+  personalWelcome.style.fontSize = '20px';
   personalWelcomeContainer.appendChild(personalWelcome);
 
   document.getElementById('start-challenge').style.display = 'block';

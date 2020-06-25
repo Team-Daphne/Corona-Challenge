@@ -21,8 +21,7 @@
 
     <main>
         <section id="welcome">
-            <p> Hello and welcome to the coronavirus challenge! (is this redundant if we get name from storage?)<br><br>  
-
+            <p> 
                 We’re on a mission to support our community by providing accurate, scientific information to help slow the spread of COVID-19. This challenge is designed to help you be informed on how to navigate different challenges during Coronavirus season.<br><br> 
                 
                 Please fill out the user profile so we can deliver the best information for your interests and needs. Then, go through our coronavirus challenge quiz to test your knowledge of how to mitigate your risk. After each question, you’ll learn more about best practices, and after you complete the quiz you’ll see your results as well as an assortment of helpful resource links customized to your knowledge level and interest.<br><br> 
@@ -38,17 +37,17 @@
                     <legend>User Profile</legend>
 
                         <label for="name">Name</label>
-                        <input type="text" name="name" required>
+                        <input class="profile-input" type="text" name="name" required>
 
                         <label for="age">How old are you?</label>
-                        <input type="number" name="age" required>
+                        <input class="profile-input" type="number" name="age" required>
 
                         <!-- might change to dob input -->
 
                         <label for="interest">Interested in any of the following?</label>
-                        <input type="checkbox" name="interest1" value="Protests"> Participating in  Protests
-                        <input type="checkbox" name="interest2" value="Travel"> Travel
-                        <input type="checkbox" name="interest3" value="Dining-out"> Dining Out
+                        <input class="profile-input" type="checkbox" name="interest1" value="Protests"> Participating in  Protests
+                        <input class="profile-input" type="checkbox" name="interest2" value="Travel"> Travel
+                        <input class="profile-input" type="checkbox" name="interest3" value="Dining-out"> Dining Out
                         <br>
                      <button id="submit-user">Submit</button>
                      <!-- <button id="start-challenge"><a href="scenarios.html">Start challenge!</a></button> -->
