@@ -22,6 +22,14 @@ function handleDataFromForm (event){
   localStorage.setItem('storedProfile', userProfileStringified);
   document.getElementById('user-input').reset();//this clears form and may not be required
   document.getElementById('submit-user').style.display = 'none';
+  document.getElementById('user-input').style.display = 'none';
+
+  var personalWelcomeContainer = document.getElementById('user-form');
+  var personalWelcome = document.createElement('p');
+  personalWelcome.textContent = 'Welcome, ' + playerName + '! Are you ready to test your knowledge?';
+
+  personalWelcomeContainer.appendChild(personalWelcome);
+
   document.getElementById('start-challenge').style.display = 'block';
 }
 

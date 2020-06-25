@@ -82,6 +82,10 @@ p{
   font-family: 'Roboto', sans-serif;
 }
 
+#user-input{
+  border: solid 1px #e0795f;
+}
+
 #user-form{
   border: solid 1px #e0795f;
   border-radius: 10px;
