@@ -64,6 +64,14 @@ var handwashing = new Scenario(
   'Although you could certainly pick another song, singing Twinkle Twinkle Little Star twice ensures you\'ve washed your hands for a minimum of 20 seconds.'
 );
 
+var groceries = new Scenario(
+  'images/groceries.jpg',
+  'Your food supply is running low and you’ve decided it’s time to venture out for groceries. How should you best do this?',
+  ['If online grocery delivery isn’t an option, wear your face mask and practice diligent social distancing at the store. Use hand sanitizer when done, wash your hands when you return home.', 'Grab your face mask and all your reusable bags from home, and head to the grocery store.', 'Don’t worry about the face mask, some stores don’t require it.', 'Head to the grocery store, business as usual! Nothing to worry about, we all wash our fruit and vegetables anyway.'],
+  [0, 1, 2, 3],
+  ['0 pt: If online grocery delivery isn’t an option, wear your face mask and practice diligent social distancing at the store. Use hand sanitizer when done, wash your hands when you return home.', '1 pt: Grab your face mask and all your reusable bags from home, and head to the grocery store.', '2 pt: Don’t worry about the face mask, some stores don’t require it.', '3 pt: Head to the grocery store, business as usual! Nothing to worry about, we all wash our fruit and vegetables anyway.'],
+  'From the CDC: “Recent studies indicate that a significant portion of individuals with coronavirus lack symptoms (“asymptomatic”) and that even those who eventually develop symptoms (“pre-symptomatic”) can transmit the virus to others before showing symptoms.  This means that the virus can spread between people interacting in close proximity—for example, speaking, coughing, or sneezing—even if those people are not exhibiting symptoms.  In light of this new evidence, CDC recommends wearing cloth face coverings in public settings where other social distancing measures are difficult to maintain (e.g., grocery stores and pharmacies) especially in areas of significant community-based transmission.”'
+);
 
 //====================== link objects =======================================
 
