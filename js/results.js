@@ -160,8 +160,23 @@ function renderInputLinksToPage(){
     linksList3.appendChild(listContent3);
   }
 }
+function renderAgeLinksToPage(){
+  if(profileFromStorage.age > '59'){
+    var ageMessage = document.getElementById('user-age');
+    var ageMessageContent = document.createElement('p');
+    ageMessageContent.textContent= 'Based on your age, you might find this article enlightening.';
+    ageMessage.appendChild(ageMessageContent);
 
 
+    var ageList = document.getElementById('user-age1');
+    var agelistContent = document.createElement('a');
+    var ageLink = document.createTextNode(handwashingLink.text);
+    agelistContent.appendChild(ageLink);
+    agelistContent.href = handwashingLink.link;
+    agelistContent.target = '_blank',
+    ageList.appendChild(agelistContent);
+  }
+}
 
 
 
@@ -170,5 +185,6 @@ function renderInputLinksToPage(){
 renderResultsToPage();
 renderGameLinksToPage();
 renderInputLinksToPage();
+renderAgeLinksToPage();
 
 
