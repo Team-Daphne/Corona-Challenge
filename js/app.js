@@ -11,13 +11,6 @@ var totalPoints = 0;
 var finalPointTotal; //to hold tally before going to results page
 // var totalPoints = arrSum(pointsEarned);
 
-var goodScoreLinks = [reopenLink, essentialErrandsLink, goOutLink];
-var badScoreLinks = [handwashingLink, feelingSick, sixFeetLink];
-
-
-var protestLinks = gatheringLink;
-var diningLinks = diningOutLink;
-var travelLinks = travelLink;
 
 //====================== Constructor Function =======================================
 function Scenario(img, question, answerOptions, pointValue, finalAnswerKey, finalAnswer){
@@ -143,6 +136,14 @@ var travelLink = new OutsideLinks(
   'https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-in-the-us.html'
 );
 
+//============================Link Arrays================================
+var goodScoreLinks = [reopenLink, essentialErrandsLink, goOutLink, hikingLink];
+var badScoreLinks = [handwashingLink, ifSickLink, sixFeetLink];
+
+
+var protestLinks = [gatheringLink];
+var diningLinks = [diningOutLink];
+var travelLinks = [travelLink];
 //====================== Functions =======================================
 function makeSubmitButton() {
   var answerChoiceContainer = document.getElementById('answer-container');
