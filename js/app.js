@@ -48,7 +48,7 @@ var handShake = new Scenario(
 );
 
 var handwashing = new Scenario(
-  'images/handwashing-lg.jpg',
+  'images/hw-illustrated.png',
   'You been out and about all day; upon returning home you know you need to clean your hands. Describe your procedure...',
   ['Scrub with soap and water for 20 seconds', 'A few pumps of hand sanitizer before you touch anything in your home', 'A quick rinse from the hose before you walk inside', 'Wipe your hands on your pants before you open your front door'],
   [0, 1, 2, 3],
