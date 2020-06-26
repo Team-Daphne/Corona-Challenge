@@ -11,13 +11,6 @@ var totalPoints = 0;
 var finalPointTotal; //to hold tally before going to results page
 // var totalPoints = arrSum(pointsEarned);
 
-var goodScoreLinks = [reopenLink, essentialErrandsLink, goOutLink];
-var badScoreLinks = [handwashingLink, feelingSick, sixFeetLink];
-
-
-var protestLinks = gatheringLink;
-var diningLinks = diningOutLink;
-var travelLinks = travelLink;
 
 //====================== Constructor Function =======================================
 function Scenario(img, question, answerOptions, pointValue, finalAnswerKey, finalAnswer){
@@ -76,7 +69,7 @@ var groceries = new Scenario(
 var hiking = new Scenario(
   'images/hiking.jpeg',
   'The state is starting to reopen, so you’re out hiking and realize you’re on an overcrowded trail. You know you need to maintain social distance, how should you handle this?',
-  ['The state is starting to reopen, so you’re out hiking and realize you’re on an overcrowded trail. You know you need to maintain social distance, how should you handle this?', 'Leave and find another trail that’s not as crowded.', 'Keep a distance of at least 6 feet between you and other hikers.', 'Hold out your arms… your arm length is a big enough distance.', 'Don’t worry - as long as you’re wearing a mask, it doesn’t matter.'],
+  [ 'Leave and find another trail that’s not as crowded.', 'Keep a distance of at least 6 feet between you and other hikers.', 'Hold out your arms… your arm length is a big enough distance.', 'Don’t worry - as long as you’re wearing a mask, it doesn’t matter.'],
   [0, 1, 2, 3],
   ['0 pt: Leave and find another trail that’s not as crowded.', '1 pt: Keep a distance of at least 6 feet between you and other hikers', '2 pt: Hold out your arms …your arm length is a big enough distance.', '3 pt: Don’t worry - as long as you’re wearing a mask, it doesn’t matter.'],
   'Do your research! Head for less popular trails, and have a few back-ups in mind in case your first choice is crowded. If you’re encounter other hikers, try to maintain a distance of 6 feet between you and any other hikers (that’s about the width of an average sedan). You should definitely bring hand sanitizer and your face mask, but maintaining distance is the best line of defense.'
@@ -94,12 +87,17 @@ var feelingSick = new Scenario(
 //====================== link objects =======================================
 
 var gatheringLink = new OutsideLinks(
-  'CDC recommendations for large gatherings',
+  'CDC Recommendations for Large Gatherings',
   'https://www.cdc.gov/coronavirus/2019-ncov/community/large-events/considerations-for-events-gatherings.html'
 );
 
+var gatheringLink2 = new OutsideLinks(
+  'Q&A: Mass gatherings and COVID-19',
+  'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/q-a-on-mass-gatherings-and-covid-19?gclid=CjwKCAjwltH3BRB6EiwAhj0IUA_dnUXiICNjdtmlSmI-9koDICgUzqI8WxFya1CPJp_VtVH9RJIeAxoCU40QAvD_BwE'
+);
+
 var handwashingLink = new OutsideLinks(
-  'CDC recommendations for handwashing',
+  'CDC Recommendations For Handwashing',
   'https://www.cdc.gov/handwashing/when-how-handwashing.html'
 );
 
@@ -137,12 +135,28 @@ var diningOutLink = new OutsideLinks(
   'CDC: Considerations for Restaurants and Bars',
   'https://www.cdc.gov/coronavirus/2019-ncov/community/organizations/business-employers/bars-restaurants.html'
 );
+var diningOutLink2 = new OutsideLinks(
+  'Restaurants and COVID-19: How to Dine Safely at Your Favorite Place',
+  'https://www.healthline.com/health-news/is-it-safe-to-dine-in-a-restaurant-during-covid19'
+);
 
 var travelLink = new OutsideLinks(
   'CDC: Considerations for Travelers',
   'https://www.cdc.gov/coronavirus/2019-ncov/travelers/travel-in-the-us.html'
 );
 
+var travelLink2 = new OutsideLinks(
+  'Travel: Frequently Asked Questions and Answers',
+  'https://www.cdc.gov/coronavirus/2019-ncov/travelers/faqs.html'
+);
+//============================Link Arrays================================
+var goodScoreLinks = [reopenLink, essentialErrandsLink, goOutLink, hikingLink];
+var badScoreLinks = [handwashingLink, ifSickLink, sixFeetLink];
+
+
+var protestLinks = [gatheringLink, gatheringLink2];
+var diningLinks = [diningOutLink, diningOutLink2];
+var travelLinks = [travelLink, travelLink2];
 //====================== Functions =======================================
 function makeSubmitButton() {
   var answerChoiceContainer = document.getElementById('answer-container');
@@ -158,15 +172,13 @@ function makeSubmitButton() {
 
 //happens upon page load and anytime they click next question
 function renderScenarioToPage(){
-  //hide the other thing here
   document.getElementById('answer-key').style.display = 'none';
   document.getElementById('final-answer-section').style.display = 'none';
 
 
-  //if statement... if this greater then first iteration (index is > 0) then
+  //if statement... if this greater than first iteration (index is > 0) then
   if (indexNumber > 0){
     var answerKeyContainer = document.getElementById('answer-key');
-    // answerKeyContainer.removeChild(answerKeyContainer.firstChild);
     answerKeyContainer.innerHTML= '';
     var finalAnswerSection = document.getElementById('final-answer-section');
     finalAnswerSection.removeChild(finalAnswerSection.firstChild);
@@ -180,15 +192,7 @@ function renderScenarioToPage(){
 
   //----------------------- the above works to render the questions
 
-  // for (var i = 0; i < 4; i++){
-  //   var answerChoice = document.createElement('input');
-  //   answerChoice.type = 'radio';
-  //   answerChoiceContainer.appendChild(answerChoice);
-
-  //   var answerLabel = document.createElement('label');
-  //   answerLabel.textContent = allScenarios[indexNumber].answerOptions[i];
-  //   answerChoiceContainer.appendChild(answerLabel);
-  // }
+ 
 
   var answerChoice = document.getElementById('label0');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[0];
@@ -233,15 +237,14 @@ function makeSeeResultsButton() {
   seeResultsButton.style.height = '40px';
   seeResultsButton.style.marginTop = '50px';
   seeResultsButton.style.fontSize = '18pt';
+  seeResultsButton.style.float = 'right';
+  seeResultsButton.style.marginRight = '40px';
   seeResultsButton.textContent = 'See results!';
   seeResultsButtonHolder.appendChild(seeResultsButton);
 }
 
 function renderCorrectAnswer(){
-  // var answerChoiceContainer = document.getElementById('answer-container');
-  // var answerLabel = document.createElement('p');
-  // answerLabel.textContent = allScenarios[indexNumber].finalAnswer;
-  // answerChoiceContainer.parentNode.replaceChild(answerLabel, answerChoiceContainer);
+  
 
   document.getElementById('answer-container').style.display = 'none';
   document.getElementById('final-answer-section').style.display = 'block';
@@ -277,8 +280,6 @@ function putFinalScoreInStorage() {
   localStorage.setItem('storedPoints', finalPointTotalStringified);
 }
 
-
-
 //=================== Getting value from radio buttons =================
 
 
@@ -294,7 +295,44 @@ function registerAnswer(){
   }
 
   totalPoints += checkedButtonValue;
+  console.log(checkedButtonValue);
 }
+
+
+
+//implemnt for loop
+//need to increment by pixels by movement on the screen
+//how to make a animated progeress bar in java script
+function renderTotalScore(){
+
+var thermometer = document.getElementById('displayed-score');
+if (indexNumber === 0){
+  var displayedScore = document.createElement('p');
+  displayedScore.textContent = totalPoints;
+}else{
+  var displayedScore = document.getElementsByTagName('p')[1];
+  console.log(displayedScore)
+  displayedScore.textContent = totalPoints;
+}
+
+thermometer.appendChild(displayedScore);
+
+
+}
+// var thermometerBox = document.getElementById('displayed-score');
+// function hideThermometer(){
+//   if(indexNumber >= 1){
+//     thermometerBox.style.display = 'block';
+//   // } else {
+//   //   thermometerBox.style.display = 'none';
+//    }
+// }
+// function styleThermometer(){
+//   if(indexNumber >= 1){
+
+// }
+
+
 
 //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
 
@@ -325,13 +363,21 @@ function handleClickSeeResults() {
 
 function handleSubmitAnswer(event){
   event.preventDefault();
-  //insert function to check answer
+
   registerAnswer();
   renderCorrectAnswer();
+  clearRadioButtons();
+  renderTotalScore();
 
 }
 
-
+//https://stackoverflow.com/questions/2554116/how-to-clear-radio-button-in-javascript
+function clearRadioButtons(){
+  document.getElementById('radio0').checked = false;
+  document.getElementById('radio1').checked = false;
+  document.getElementById('radio2').checked = false;
+  document.getElementById('radio3').checked = false;
+}
 
 
 // //handleSeeMyResults will transfer points to the result page
@@ -343,5 +389,4 @@ function handleSubmitAnswer(event){
 // function updatePointEarned(){
 
 // }
-
 

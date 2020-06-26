@@ -21,7 +21,13 @@
 
     <main>
         <section id="welcome">
-            <p> Hello welcome to Corona challenge! Please fill out the information below you will be given questions on scenarios. This game is designed to help you be informed on how to navigate different challenges during Corona season. Pick the best answer possible and your score will be tracked throughout the game. Try to have the lowest score possible. Stay safe.</p>
+            <p> 
+                We’re on a mission to support our community by providing accurate, scientific information to help slow the spread of COVID-19. This challenge is designed to help you be informed on how to navigate different challenges during Coronavirus season.<br><br> 
+                
+                Please fill out the user profile so we can deliver the best information for your interests and needs. Then, go through our coronavirus challenge quiz to test your knowledge of how to mitigate your risk. After each question, you’ll learn more about best practices, and after you complete the quiz you’ll see your results as well as an assortment of helpful resource links customized to your knowledge level and interest.<br><br> 
+
+                In this quiz, you’re aiming for the lowest score possible, so choose the answer you think is the best way to stay healthy. Your score will be tracked throughout the game, and remember that low risk choices will give you a low score! Stay safe!
+            </p>
         </section>
 
         <section id="user-form">
@@ -31,24 +37,23 @@
                     <legend>User Profile</legend>
 
                         <label for="name">Name</label>
-                        <input type="text" name="name" required>
+                        <input class="profile-input" type="text" name="name" required>
 
                         <label for="age">How old are you?</label>
-                        <input type="number" name="age" required>
+                        <input class="profile-input" type="number" name="age" required>
 
-                        <label for="age">How old are you?</label>
-                        <input type="number" name="age" required>
                         <!-- might change to dob input -->
 
-                        <label for="interest">Please check the boxes below if you're interested in any of the following activities, and learning more about staying safe.</label>
-                        <input type="checkbox" name="interest1" value="Protests"> Participating in  Protests
-                        <input type="checkbox" name="interest2" value="Travel"> Travel
-                        <input type="checkbox" name="interest3" value="Dining-out"> Dining Out
+                        <label for="interest">Interested in any of the following?</label>
+                        <input class="profile-input" type="checkbox" name="interest1" value="Protests"> Participating in  Protests
+                        <input class="profile-input" type="checkbox" name="interest2" value="Travel"> Travel
+                        <input class="profile-input" type="checkbox" name="interest3" value="Dining-out"> Dining Out
                         <br>
                      <button id="submit-user">Submit</button>
-                     <button id="start-challenge"><a href="scenarios.html">Start challenge!</a></button>
+                     <!-- <button id="start-challenge"><a href="scenarios.html">Start challenge!</a></button> -->
                 </fieldset>
             </form>
+            <button id="start-challenge"><a href="scenarios.html">Start challenge!</a></button>
         </section>
 
         <!-- <div> STRETCH GOAL
@@ -59,9 +64,9 @@
        
         <section id="start-challenge-button-holder"></section>
             
-
+<!-- 
         <a href="scenarios.html">Scenario page</a>
-        <a href="results.html">Result page</a>
+        <a href="results.html">Result page</a> -->
     </main>
 
     <footer> &copy; 2020 Team Daphne </footer>

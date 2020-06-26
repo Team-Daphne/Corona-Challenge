@@ -18,8 +18,8 @@
 
 #scenario-container {
     padding-top: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    /* padding-bottom: 20px; */
+    margin-bottom: 10px;
     width: 100%;
     font-weight: bold;
     color: #2e3047;
@@ -32,7 +32,7 @@
     padding: 5px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 90%;
     color: #3e405b;
     font-family: 'Roboto', sans-serif;
@@ -53,19 +53,36 @@ form > button {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 30pt;
+    margin-bottom: 10pt;
     color: #2f3044;
     font-family: 'Roboto', sans-serif;
 }
 
 section > button {
-    float: right;
-    margin-right: 40px;
+    /* float: right;
+    margin-right: 40px; */
+    margin-right: auto; /*to match submit */
+    margin-left: 60px;
     font-family: 'Roboto', sans-serif;
     color: #ecd0a5;
     background-color: #3e405b;
     border-radius: 5px;
 }
+article{
+    float: right;
+    width: 100px;
+    text-align: center;
+    border: solid;
+    margin-right: 30px;
+    padding-top: 12px;
+    border-radius: 10px;
+    border-color: #3e405b;
+  }
+  
 
+
+li {
+    padding-bottom: 10px;
+}
 
 
