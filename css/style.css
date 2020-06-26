@@ -86,6 +86,10 @@ p{
   font-family: 'Roboto', sans-serif;
 }
 
+.personal-links {
+  padding: 10px;
+}
+
 
 #user-form{
   padding:10px;
@@ -173,6 +177,7 @@ h3{
 .bio img{
   float: left;
   margin-right: 15px;
+  margin-bottom: 30px;
   border: double 6px #3e405b;
   border-radius: 100%;
   height: 200px;
@@ -184,10 +189,15 @@ h3{
 }
 
 li{
+  /* height: 220px; */
   margin: 10px;
   /* background-color: purple; */
 }
 
+.bio-list {
+    height: 220px;
+    margin: 10px;
+}
 
 #feedback-form{
   margin-top: 80px;
@@ -206,8 +216,12 @@ textarea{
   font-family: 'Roboto', sans-serif;
   }
 
-
 .inline{
   display: inline;
- 
+}
+
+/* on results page*/
+#point-results {
+  margin-bottom: 10px;
+  font-size: 14pt;
 }
