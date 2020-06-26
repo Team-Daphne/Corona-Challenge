@@ -69,13 +69,14 @@ section > button {
     border-radius: 5px;
 }
 article{
-    background-color: red;
-    border: solid red;
     float: right;
     width: 100px;
-    margin-left: 166px;
-    /* float: right; */
-    /* width: 100px; */
+    text-align: center;
+    border: solid;
+    margin-right: 30px;
+    padding-top: 12px;
+    border-radius: 10px;
+    border-color: #3e405b;
   }
   
 
@@ -83,4 +84,5 @@ article{
 li {
     padding-bottom: 10px;
 }
+
 
