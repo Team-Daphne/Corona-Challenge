@@ -188,7 +188,6 @@ li{
   /* background-color: purple; */
 }
 
-
 #feedback-form{
   margin-top: 80px;
 }
@@ -206,8 +205,12 @@ textarea{
   font-family: 'Roboto', sans-serif;
   }
 
-
 .inline{
   display: inline;
- 
+}
+
+/* on results page*/
+#point-results {
+  margin-bottom: 10px;
+  font-size: 14pt;
 }
