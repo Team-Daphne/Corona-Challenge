@@ -173,6 +173,7 @@ h3{
 .bio img{
   float: left;
   margin-right: 15px;
+  margin-bottom: 30px;
   border: double 6px #3e405b;
   border-radius: 100%;
   height: 200px;
@@ -184,6 +185,7 @@ h3{
 }
 
 li{
+  height: 220px;
   margin: 10px;
   /* background-color: purple; */
 }

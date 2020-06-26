@@ -68,6 +68,7 @@ section > button {
     background-color: #3e405b;
     border-radius: 5px;
 }
+
 span{
     float: right;
     width: 125px;
@@ -79,12 +80,8 @@ span{
     border-color: #3e405b;
   }
   
-
-
 li {
     padding-bottom: 10px;
-    /* color: rgb(120, 181, 120);
-    color: rgb(230, 83, 83); */
 }
 
 
