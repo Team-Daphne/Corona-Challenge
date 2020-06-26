@@ -192,15 +192,7 @@ function renderScenarioToPage(){
 
   //----------------------- the above works to render the questions
 
-  // for (var i = 0; i < 4; i++){
-  //   var answerChoice = document.createElement('input');
-  //   answerChoice.type = 'radio';
-  //   answerChoiceContainer.appendChild(answerChoice);
-
-  //   var answerLabel = document.createElement('label');
-  //   answerLabel.textContent = allScenarios[indexNumber].answerOptions[i];
-  //   answerChoiceContainer.appendChild(answerLabel);
-  // }
+ 
 
   var answerChoice = document.getElementById('label0');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[0];
@@ -252,10 +244,7 @@ function makeSeeResultsButton() {
 }
 
 function renderCorrectAnswer(){
-  // var answerChoiceContainer = document.getElementById('answer-container');
-  // var answerLabel = document.createElement('p');
-  // answerLabel.textContent = allScenarios[indexNumber].finalAnswer;
-  // answerChoiceContainer.parentNode.replaceChild(answerLabel, answerChoiceContainer);
+  
 
   document.getElementById('answer-container').style.display = 'none';
   document.getElementById('final-answer-section').style.display = 'block';
@@ -309,6 +298,8 @@ function registerAnswer(){
   console.log(checkedButtonValue);
 }
 
+
+
 //implemnt for loop
 //need to increment by pixels by movement on the screen
 //how to make a animated progeress bar in java script
@@ -328,7 +319,18 @@ thermometer.appendChild(displayedScore);
 
 
 }
+// var thermometerBox = document.getElementById('displayed-score');
+// function hideThermometer(){
+//   if(indexNumber >= 1){
+//     thermometerBox.style.display = 'block';
+//   // } else {
+//   //   thermometerBox.style.display = 'none';
+//    }
+// }
+// function styleThermometer(){
+//   if(indexNumber >= 1){
 
+// }
 
 
 
