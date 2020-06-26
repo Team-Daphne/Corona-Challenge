@@ -26,7 +26,6 @@ function Scenario(img, question, answerOptions, pointValue, finalAnswerKey, fina
 function OutsideLinks(text, link){
   this.text = text;
   this.link = link;
-  //this.category = category;
 }
 //=============================User Contructor======================
 function User(name, age, protests, travel, diningOut){
@@ -49,8 +48,8 @@ var handShake = new Scenario(
 );
 
 var handwashing = new Scenario(
-  'images/handwashing-lg.jpg',
-  'You return home for the day and need to clean your hands. Describe your procedure...',
+  'images/hw-illustrated.png',
+  'You been out and about all day; upon returning home you know you need to clean your hands. Describe your procedure...',
   ['Scrub with soap and water for 20 seconds', 'A few pumps of hand sanitizer before you touch anything in your home', 'A quick rinse from the hose before you walk inside', 'Wipe your hands on your pants before you open your front door'],
   [0, 1, 2, 3],
   ['0 pt: Scrub with soap and water for 20 seconds', '1 pt: A few pumps of hand sanitizer before you touch anything in your home', '2 pt: A quick rinse from the hose before you walk inside', '3 pt: Wipe your hands on your pants before you open your front door'],
@@ -68,7 +67,7 @@ var groceries = new Scenario(
 
 var hiking = new Scenario(
   'images/hiking.jpeg',
-  'The state is starting to reopen, so you’re out hiking and realize you’re on an overcrowded trail. You know you need to maintain social distance, how should you handle this?',
+  'You’re out hiking and realize you’re on an overcrowded trail. You know you need to maintain social distance, how should you handle this?',
   [ 'Leave and find another trail that’s not as crowded.', 'Keep a distance of at least 6 feet between you and other hikers.', 'Hold out your arms… your arm length is a big enough distance.', 'Don’t worry - as long as you’re wearing a mask, it doesn’t matter.'],
   [0, 1, 2, 3],
   ['0 pt: Leave and find another trail that’s not as crowded.', '1 pt: Keep a distance of at least 6 feet between you and other hikers', '2 pt: Hold out your arms …your arm length is a big enough distance.', '3 pt: Don’t worry - as long as you’re wearing a mask, it doesn’t matter.'],
@@ -76,7 +75,7 @@ var hiking = new Scenario(
 );
 
 var feelingSick = new Scenario(
-  'images/sick.png',
+  'images/sickly.png',
   'You’ve followed all the recommendations, but are starting to feel a bit sick. What is your best course of action?',
   ['If you have any emergency warning signs, seek medical help immediately. Otherwise, stay home, keep track of your symptoms and contact your healthcare provider.', 'Wear your face mask and go to your neighborhood pharmacy for over-the-counter relief of mild symptoms.', 'Stay home and tough it out; it probably isn’t anything to worry about.', 'Take the bus to the hospital immediately, no time to grab your face mask.'],
   [0, 1, 2, 3],
@@ -233,7 +232,7 @@ function makeSeeResultsButton() {
   seeResultsButton.onclick = handleClickSeeResults;
   seeResultsButton.style.width = '200px';
   seeResultsButton.style.height = '40px';
-  seeResultsButton.style.marginTop = '50px';
+  seeResultsButton.style.marginTop = '20px';
   seeResultsButton.style.fontSize = '18pt';
   seeResultsButton.style.float = 'right';
   seeResultsButton.style.marginRight = '40px';
@@ -242,7 +241,6 @@ function makeSeeResultsButton() {
 }
 
 function renderCorrectAnswer(){
-  
 
   document.getElementById('answer-container').style.display = 'none';
   document.getElementById('final-answer-section').style.display = 'block';
@@ -280,9 +278,6 @@ function putFinalScoreInStorage() {
 
 //=================== Getting value from radio buttons =================
 
-
-
-
 //---------the below works to access the button thats clicked, but we need to figure out how to read value of it
 function registerAnswer(){
   var radioButtons = document.getElementsByName('answer-choice');
@@ -293,7 +288,6 @@ function registerAnswer(){
   }
 
   totalPoints += checkedButtonValue;
-  console.log(checkedButtonValue);
 }
 
 //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
@@ -303,10 +297,12 @@ function renderTotalScore(){
   var thermometer = document.getElementById('displayed-score');
   if (indexNumber === 0){
     var displayedScore = document.createElement('span');
-    displayedScore.textContent = totalPoints + ' points';
+    // displayedScore.textContent = totalPoints + ' points';
+    displayedScore.textContent = 'risk level: ' + totalPoints;
   }else{
     var displayedScore = document.getElementsByTagName('SPAN')[0];
-    displayedScore.textContent = totalPoints + ' points';
+    // displayedScore.textContent = totalPoints + ' points';
+    displayedScore.textContent = 'risk level: ' + totalPoints;
   } thermometer.appendChild(displayedScore);
 }
 
@@ -356,4 +352,3 @@ function clearRadioButtons(){
   document.getElementById('radio2').checked = false;
   document.getElementById('radio3').checked = false;
 }
-

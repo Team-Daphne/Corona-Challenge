@@ -1,5 +1,5 @@
 'use strict';
-//==========================AddEventLIstener============================
+//==========================Add EventListener============================
 function listenForSubmit(){
   var transferInfoToResultsPage = document.getElementById('user-input');
   transferInfoToResultsPage.addEventListener('submit', handleDataFromForm);
@@ -33,7 +33,8 @@ function handleDataFromForm (event){
 
   document.getElementById('start-challenge').style.display = 'block';
 }
-//test for personal welcome back
+//===============personal welcome back using local storage==============
+//could make this code dryer with above code
 var getProfileFromStorage = localStorage.getItem('storedProfile');
 var profileFromStorage = JSON.parse(getProfileFromStorage);
 function personalWelcomeBack(){
@@ -51,6 +52,24 @@ function personalWelcomeBack(){
   document.getElementById('start-challenge').style.display = 'block';
 }
 
+//============test reset profile button=====================
+function makeClearUserProfileButton() {
+  var clearUserProfileButtonHolder = document.getElementById('clear-user-profile-button-holder');
+  var clearUserProfileButton = document.createElement('button');
+  clearUserProfileButton.type = 'click';
+  clearUserProfileButton.onclick = clearUserProfileFromStorage;
+  clearUserProfileButton.style.height = '30px';
+  clearUserProfileButton.textContent = 'Reset User Profile';
+  clearUserProfileButtonHolder.appendChild(clearUserProfileButton);
+}
+
+function clearUserProfileFromStorage (){
+  localStorage.removeItem('storedProfile');
+  location.reload();
+}
+
+//=================if local storage exists, render personal greeting====
 if (profileFromStorage !==null){
   personalWelcomeBack();
+  makeClearUserProfileButton();
 }
