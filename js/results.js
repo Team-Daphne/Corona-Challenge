@@ -32,7 +32,13 @@ function renderResultsToPage(){
   }else{
     var showTotalPoints = document.getElementById('point-results');
     var pointsTotal = document.createElement('h4');
+
     pointsTotal.textContent = 'Your score indicates a risk level of: ' + finalPointsFromStorage;
+    pointsTotal.style.fontWeight = 'bold';
+    pointsTotal.style.color = '#3E405B';
+    pointsTotal.style.textDecoration = 'underline';
+    pointsTotal.style.textDecorationStyle = 'double';
+
     showTotalPoints.appendChild(pointsTotal);
   }
 }
@@ -45,6 +51,7 @@ function renderGameLinksToPage(){
       var scoreMessage1 = document.getElementById('game-rec');
       var messageContent1 = document.createElement('p');
       messageContent1.textContent= 'Great job! You clearly know your stuff, but it\'s always good to learn more. Here are some articles that might interest you.';
+      messageContent1.style.fontStyle = 'italic';
       scoreMessage1.appendChild(messageContent1);
     }
 
@@ -67,7 +74,10 @@ function renderGameLinksToPage(){
   if(finalPointsFromStorage > 5 && finalPointsFromStorage < 11){
     var scoreMessage2 = document.getElementById('game-rec');
     var messageContent2 = document.createElement('p');
+
     messageContent2.textContent= 'Not bad! But you may lower your score if you read these articles!';
+    messageContent2.style.fontStyle = 'italic';
+
     scoreMessage2.appendChild(messageContent2);
 
 
@@ -98,7 +108,10 @@ function renderGameLinksToPage(){
   if(finalPointsFromStorage > 10 ){
     var scoreMessage3 = document.getElementById('game-rec');
     var messageContent3 = document.createElement('p');
+
     messageContent3.textContent= 'Hmm, didn\'t do so hot.  But if you read these articles, you\'ll know how to lower your risk!';
+    messageContent3.style.fontStyle = 'italic';
+
     scoreMessage3.appendChild(messageContent3);
 
 
@@ -145,7 +158,10 @@ function renderInputLinksToPage(){
 
       var choiceMessage1 = document.getElementById('user-choice');
       var choiceMessageContent1 = document.createElement('p');
+
       choiceMessageContent1.textContent= 'You didn\'t show interest in any of the topics on our form, but you might enjoy reading this article.';
+      choiceMessageContent1.style.fontStyle = 'italic';
+
       choiceMessage1.appendChild(choiceMessageContent1);
 
       var linksList = document.getElementById('user-choice1');
@@ -159,6 +175,7 @@ function renderInputLinksToPage(){
       var choiceMessage = document.getElementById('user-choice');
       var choiceMessageContent = document.createElement('p');
       choiceMessageContent.textContent= 'Based on your interests, you might enjoy these articles.';
+      choiceMessageContent.style.fontStyle = 'italic';
       choiceMessage.appendChild(choiceMessageContent);
     }
   }
@@ -228,7 +245,10 @@ function renderAgeLinksToPage(){
     } else{
       var ageMessage = document.getElementById('user-age');
       var ageMessageContent = document.createElement('p');
+
       ageMessageContent.textContent= 'Even though your age doesn\'t place you in a high-risk category, you may find this link helpful.';
+      ageMessageContent.style.fontStyle = 'italic';
+
       ageMessage.appendChild(ageMessageContent);
     }
   }
