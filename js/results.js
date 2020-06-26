@@ -170,25 +170,49 @@ function renderInputLinksToPage(){
     listContent1.href = protestLinks[0].link;//can make this access array of links when done
     listContent1.target = '_blank',
     linksList1.appendChild(listContent1);
-  //figured out how to link from js at https://www.geeksforgeeks.org/how-to-create-a-link-in-javascript/ and how to make it open in a new tab at https://www.thesitewizard.com/html-tutorial/open-links-in-new-window-or-tab.shtml#:~:text=How%20to%20Open%20Hyperlinks%20in,your%20links%20(anchor%20tags).&text=Now%20when%20your%20visitors%20click,how%20they%20configured%20that%20browser).
+    //figured out how to link from js at https://www.geeksforgeeks.org/how-to-create-a-link-in-javascript/ and how to make it open in a new tab at https://www.thesitewizard.com/html-tutorial/open-links-in-new-window-or-tab.shtml#:~:text=How%20to%20Open%20Hyperlinks%20in,your%20links%20(anchor%20tags).&text=Now%20when%20your%20visitors%20click,how%20they%20configured%20that%20browser).
+
+    var linksList1a = document.getElementById('user-choice1a');
+    var listContent1a = document.createElement('a');
+    var choicesLink1a = document.createTextNode(protestLinks[1].text);
+    listContent1a.appendChild(choicesLink1a);
+    listContent1a.href = protestLinks[1].link;
+    listContent1a.target = '_blank',
+    linksList1a.appendChild(listContent1a);
   }
   if(profileFromStorage.travel === true){
     var linksList2 = document.getElementById('user-choice2');
     var listContent2 = document.createElement('a');
     var choicesLink2 = document.createTextNode(diningLinks[0].text);
     listContent2.appendChild(choicesLink2);
-    listContent2.href = diningLinks[0].link;//can make this access array of links when done
+    listContent2.href = diningLinks[0].link;
     listContent2.target = '_blank',
     linksList2.appendChild(listContent2);
+
+    var linksList2a = document.getElementById('user-choice2a');
+    var listContent2a = document.createElement('a');
+    var choicesLink2a = document.createTextNode(diningLinks[1].text);
+    listContent2a.appendChild(choicesLink2a);
+    listContent2a.href = diningLinks[1].link;
+    listContent2a.target = '_blank',
+    linksList2a.appendChild(listContent2a);
   }
   if(profileFromStorage.diningOut === true){
     var linksList3 = document.getElementById('user-choice3');
     var listContent3 = document.createElement('a');
     var choicesLink3 = document.createTextNode(travelLinks[0].text);
     listContent3.appendChild(choicesLink3);
-    listContent3.href = travelLinks[0].link;//can make this access array of links when done
+    listContent3.href = travelLinks[0].link;
     listContent3.target = '_blank',
     linksList3.appendChild(listContent3);
+
+    var linksList3a = document.getElementById('user-choice3a');
+    var listContent3a = document.createElement('a');
+    var choicesLink3a = document.createTextNode(travelLinks[1].text);
+    listContent3a.appendChild(choicesLink3a);
+    listContent3a.href = travelLinks[1].link;
+    listContent3a.target = '_blank',
+    linksList3a.appendChild(listContent3a);
   }
 }
 //=======================Render Age Links to Page===================================
@@ -196,19 +220,19 @@ function renderAgeLinksToPage(){
 
   if(finalPointsFromStorage !== null){
     //TODO: insert if statement to have different content based on age
-    if(profileFromStorage.age > '59'){
+    if(profileFromStorage.age > 59){
       var ageMessage = document.getElementById('user-age');
       var ageMessageContent = document.createElement('p');
-      ageMessageContent.textContent= 'You\'re age places you in a high risk category, you might find this link helpful.';
+      ageMessageContent.textContent= 'Your age places you in a high risk category, you might find this link helpful.';
       ageMessage.appendChild(ageMessageContent);
     } else{
       var ageMessage = document.getElementById('user-age');
       var ageMessageContent = document.createElement('p');
-      ageMessageContent.textContent= 'Even though you\'re age doesn\'t place you in a high risk category, you still might find this link helpful.';
+      ageMessageContent.textContent= 'Even though your age doesn\'t place you in a high risk category, you still might find this link helpful.';
       ageMessage.appendChild(ageMessageContent);
     }
   }
-  if(profileFromStorage.age > '59'){
+  if(profileFromStorage.age > 59){
     var ageList = document.getElementById('user-age1');
     var agelistContent = document.createElement('a');
     var ageLink = document.createTextNode('Risk for Severe Illness Increases with Age');

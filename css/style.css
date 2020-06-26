@@ -185,7 +185,7 @@ h3{
 
 li{
   margin: 10px;
-  background-color: lightblue;
+  /* background-color: purple; */
 }
 
 
@@ -207,4 +207,7 @@ textarea{
   }
 
 
-
+.inline{
+  display: inline;
+ 
+}
