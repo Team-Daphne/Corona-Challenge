@@ -86,6 +86,10 @@ p{
   font-family: 'Roboto', sans-serif;
 }
 
+.personal-links {
+  padding: 10px;
+}
+
 
 #user-form{
   padding:10px;
@@ -185,9 +189,14 @@ h3{
 }
 
 li{
-  height: 220px;
+  /* height: 220px; */
   margin: 10px;
   /* background-color: purple; */
+}
+
+.bio-list {
+    height: 220px;
+    margin: 10px;
 }
 
 #feedback-form{
