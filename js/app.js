@@ -190,9 +190,7 @@ function renderScenarioToPage(){
   question.textContent = allScenarios[indexNumber].question;
   questionContainer.appendChild(question);
 
-  //----------------------- the above works to render the questions
-
- 
+  //=============the above works to render the questions============
 
   var answerChoice = document.getElementById('label0');
   answerChoice.textContent = allScenarios[indexNumber].answerOptions[0];
@@ -298,46 +296,30 @@ function registerAnswer(){
   console.log(checkedButtonValue);
 }
 
-
-
-//implemnt for loop
-//need to increment by pixels by movement on the screen
-//how to make a animated progeress bar in java script
-function renderTotalScore(){
-
-var thermometer = document.getElementById('displayed-score');
-if (indexNumber === 0){
-  var displayedScore = document.createElement('p');
-  displayedScore.textContent = totalPoints;
-}else{
-  var displayedScore = document.getElementsByTagName('p')[1];
-  console.log(displayedScore)
-  displayedScore.textContent = totalPoints;
-}
-
-thermometer.appendChild(displayedScore);
-
-
-}
-// var thermometerBox = document.getElementById('displayed-score');
-// function hideThermometer(){
-//   if(indexNumber >= 1){
-//     thermometerBox.style.display = 'block';
-//   // } else {
-//   //   thermometerBox.style.display = 'none';
-//    }
-// }
-// function styleThermometer(){
-//   if(indexNumber >= 1){
-
-// }
-
-
-
 //https://stackoverflow.com/questions/15839169/how-to-get-value-of-selected-radio-button
 
-// var totalPoints = arrSum(pointsEarned);
+function renderTotalScore(){
 
+  var thermometer = document.getElementById('displayed-score');
+  if (indexNumber === 0){
+    var displayedScore = document.createElement('span');
+    displayedScore.textContent = totalPoints + ' points';
+  }else{
+    var displayedScore = document.getElementsByTagName('SPAN')[0];
+    displayedScore.textContent = totalPoints + ' points';
+  } thermometer.appendChild(displayedScore);
+}
+
+function styleThermometer(){
+  var thermometerBox = document.getElementsByTagName('SPAN')[0];
+  if(totalPoints < 5){
+    thermometerBox.style.background = 'rgb(120, 181, 120)';
+  } else if (totalPoints >= 5 && totalPoints < 10) {
+    thermometerBox.style.background = 'yellow';
+  } else if (totalPoints >= 11) {
+    thermometerBox.style.background = 'rgb(230, 83, 83)';
+  }
+}
 
 
 //============Event Handler to replace answer choices w/ answer=======
@@ -353,22 +335,18 @@ function handleClickNextQuestion(event2){
   // displayAnswerContainer();
   renderScenarioToPage();
 }
-//removed event3from parenthesis
-// var finalPointTotal = totalPoints
+
 function handleClickSeeResults() {
   location.href = 'results.html';
 }
-// debugger;
-
 
 function handleSubmitAnswer(event){
   event.preventDefault();
-
   registerAnswer();
   renderCorrectAnswer();
   clearRadioButtons();
   renderTotalScore();
-
+  styleThermometer();
 }
 
 //https://stackoverflow.com/questions/2554116/how-to-clear-radio-button-in-javascript
@@ -378,15 +356,4 @@ function clearRadioButtons(){
   document.getElementById('radio2').checked = false;
   document.getElementById('radio3').checked = false;
 }
-
-
-// //handleSeeMyResults will transfer points to the result page
-// //and render the recommended links based off of quiz results and the user profile
-
-
-
-
-// function updatePointEarned(){
-
-// }
 

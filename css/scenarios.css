@@ -12,9 +12,9 @@
     margin-left: auto;
     margin-right: auto;
     height: 600px;
+    /* height: xx; */
     width: 80%;
 }
-
 
 #scenario-container {
     padding-top: 20px;
@@ -68,19 +68,18 @@ section > button {
     background-color: #3e405b;
     border-radius: 5px;
 }
-article{
+
+span{
     float: right;
-    width: 100px;
+    width: 125px;
     text-align: center;
     border: solid;
     margin-right: 30px;
-    padding-top: 12px;
+    padding: 6px;
     border-radius: 10px;
     border-color: #3e405b;
   }
   
-
-
 li {
     padding-bottom: 10px;
 }

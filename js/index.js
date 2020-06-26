@@ -33,5 +33,24 @@ function handleDataFromForm (event){
 
   document.getElementById('start-challenge').style.display = 'block';
 }
+//test for personal welcome back
+var getProfileFromStorage = localStorage.getItem('storedProfile');
+var profileFromStorage = JSON.parse(getProfileFromStorage);
+function personalWelcomeBack(){
+  var playerName = profileFromStorage.name;
+  document.getElementById('submit-user').style.display = 'none';
+  document.getElementById('user-input').style.display = 'none';
 
+  var personalWelcomeContainer = document.getElementById('user-form');
+  var personalWelcome = document.createElement('p');
+  personalWelcome.textContent = 'Welcome back, ' + playerName + '! Would you like to play again?';
 
+  personalWelcome.style.fontSize = '20px';
+  personalWelcomeContainer.appendChild(personalWelcome);
+
+  document.getElementById('start-challenge').style.display = 'block';
+}
+
+if (profileFromStorage !==null){
+  personalWelcomeBack();
+}
